@@ -13,25 +13,26 @@ import (
 	"syscall"
 )
 
-var TMPFILE = "/tmp/demobinary"
+var TMPFILE = "/dev/null"
 var LOGPREFIX_ENV_VAR = "LOGPREFIX"
 
 func main() {
 	log.SetPrefix(fmt.Sprintf("%s[pid:%d] ", os.Getenv(LOGPREFIX_ENV_VAR), os.Getpid()))
 	log.SetFlags(log.Lshortfile)
-	log.Println("⏩ ", os.Args)
+	log.Println("⏩", os.Args)
 
-	var writeFile = flag.Bool("file-write", false, "write to "+TMPFILE)
-	var readFile = flag.Bool("file-read", false, "read from "+TMPFILE)
-	var tcp = flag.Bool("tcp", false, "spawn a tcp server")
-	var udp = flag.Bool("udp", false, "spawn a udp server")
-	var icmp = flag.Bool("icmp", false, "open an icmp socket")
+	var fileWrite = flag.Bool("file-write", false, "write to "+TMPFILE)
+	var fileRead = flag.Bool("file-read", false, "read from "+TMPFILE)
+	var netTcp = flag.Bool("net-tcp", false, "spawn a tcp server")
+	var netUdp = flag.Bool("net-udp", false, "spawn a udp server")
+	var netIcmp = flag.Bool("net-icmp", false, "open an icmp socket")
+	var crash = flag.Bool("crash", false, "crash instead of exiting.")
 
 	flag.Parse()
 
 	var subprocess = flag.Args()
 
-	if *writeFile {
+	if *fileWrite {
 		if err := os.WriteFile(TMPFILE, []byte{}, 0666); err != nil {
 			log.Fatal("❌ Error creating file:", err)
 		} else {
@@ -40,14 +41,14 @@ func main() {
 		// make file writable for other users so that sudo/non-sudo testing works.
 		os.Chmod(TMPFILE, 0666)
 	}
-	if *readFile {
+	if *fileRead {
 		if _, err := os.ReadFile(TMPFILE); err != nil {
 			log.Fatal("❌ Error reading file:", err)
 		} else {
 			log.Println("✅ File read successful:", TMPFILE)
 		}
 	}
-	if *tcp {
+	if *netTcp {
 		listener, err := net.Listen("tcp", ":0")
 		if err != nil {
 			log.Fatal("❌ Error starting TCP server:", err)
@@ -56,7 +57,7 @@ func main() {
 		}
 		defer listener.Close()
 	}
-	if *udp {
+	if *netUdp {
 		server, err := net.ListenPacket("udp", ":0")
 		if err != nil {
 			log.Fatal("❌ Error starting UDP server:", err)
@@ -65,7 +66,7 @@ func main() {
 		}
 		defer server.Close()
 	}
-	if *icmp {
+	if *netIcmp {
 		fd, err := syscall.Socket(syscall.AF_INET, syscall.SOCK_RAW, syscall.IPPROTO_ICMP)
 		if err != nil {
 			log.Fatal("❌ Error opening ICMP socket:", err)
@@ -84,6 +85,10 @@ func main() {
 		} else {
 			log.Println("✅ Subprocess ran successfully:", subprocess)
 		}
+	}
+	if *crash {
+		log.Println("🫡  Terminating with SIGKILL...")
+		syscall.Kill(syscall.Getpid(), syscall.SIGKILL)
 	}
 	log.Println("⭐️ Success.")
 }
