@@ -3,6 +3,9 @@ Demo binary to exercise various capabilities that may be restricted by seccomp/a
 */
 package main
 
+// #cgo LDFLAGS: -ldl
+// #include <dlfcn.h>
+import "C"
 import (
 	"flag"
 	"fmt"
@@ -25,7 +28,8 @@ func main() {
 	var fileRead = flag.Bool("file-read", false, "read from "+TMPFILE)
 	var netTcp = flag.Bool("net-tcp", false, "spawn a tcp server")
 	var netUdp = flag.Bool("net-udp", false, "spawn a udp server")
-	var netIcmp = flag.Bool("net-icmp", false, "open an icmp socket")
+	var netIcmp = flag.Bool("net-icmp", false, "open an icmp socket, exercise NET_RAW capability.")
+	var library = flag.String("load-library", "", "load a shared library")
 	var crash = flag.Bool("crash", false, "crash instead of exiting.")
 
 	flag.Parse()
@@ -84,6 +88,13 @@ func main() {
 			log.Fatal("❌ Error running subprocess:", err)
 		} else {
 			log.Println("✅ Subprocess ran successfully:", subprocess)
+		}
+	}
+	if *library != "" {
+		if handle := C.dlopen(C.CString(*library), C.RTLD_NOW); handle == nil {
+			log.Fatal("❌ Error loading library: ", C.GoString(C.dlerror()))
+		} else {
+			log.Println("✅ Library loaded successfully:", *library)
 		}
 	}
 	if *crash {
