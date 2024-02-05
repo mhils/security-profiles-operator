@@ -13,6 +13,7 @@ import (
 	"net"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"syscall"
 )
 
@@ -23,9 +24,13 @@ func main() {
 	log.SetPrefix(fmt.Sprintf("%s[pid:%d] ", os.Getenv(LOGPREFIX_ENV_VAR), os.Getpid()))
 	log.SetFlags(log.Lshortfile)
 	log.Println("⏩", os.Args)
+	var SYMLINK_FROM = filepath.Join(os.TempDir(), "demobinary-symlink")
+	var SYMLINK_TO = filepath.Join(os.TempDir(), "demobinary-file")
 
 	var fileWrite = flag.Bool("file-write", false, "write to "+TMPFILE)
 	var fileRead = flag.Bool("file-read", false, "read from "+TMPFILE)
+	var fileTemp = flag.Bool("file-temp", false, "create a random file in "+os.TempDir())
+	var fileSymlink = flag.Bool("file-symlink", false, fmt.Sprintf("Symlink %s -> %s and try reading it.", SYMLINK_FROM, SYMLINK_TO))
 	var netTcp = flag.Bool("net-tcp", false, "spawn a tcp server")
 	var netUdp = flag.Bool("net-udp", false, "spawn a udp server")
 	var netIcmp = flag.Bool("net-icmp", false, "open an icmp socket, exercise NET_RAW capability.")
@@ -50,6 +55,40 @@ func main() {
 			log.Fatal("❌ Error reading file:", err)
 		} else {
 			log.Println("✅ File read successful:", TMPFILE)
+		}
+	}
+	if *fileSymlink {
+		if _, err := os.Stat(SYMLINK_TO); err != nil {
+			if err := os.WriteFile(SYMLINK_TO, []byte{}, 0644); err != nil {
+				log.Fatal("❌ Error creating SYMLINK_TO file:", err)
+			}
+			if err := os.Chmod(SYMLINK_TO, 0644); err != nil {
+				log.Fatal("❌ Error setting permissions for SYMLINK_TO file:", err)
+			}
+			// defer os.Remove(SYMLINK_TO)
+		}
+		if _, err := os.Stat(SYMLINK_FROM); err != nil {
+			fmt.Println("Cannot stat", err)
+			if err := os.Symlink(SYMLINK_TO, SYMLINK_FROM); err != nil {
+				log.Fatal("❌ Error creating symlink:", err)
+			}
+			// defer os.Remove(SYMLINK_FROM)
+		}
+
+		if _, err := os.ReadFile(SYMLINK_FROM); err != nil {
+			log.Fatal("❌ Error reading symlink:", err)
+		} else {
+			log.Println("✅ Symlink read successful:", SYMLINK_FROM)
+		}
+	}
+	if *fileTemp {
+		f, err := os.CreateTemp("", "demobinary")
+		defer f.Close()
+		defer os.Remove(f.Name())
+		if err != nil {
+			log.Fatal("❌ Error creating temp file:", err)
+		} else {
+			log.Println("✅ Created temp file:", f.Name())
 		}
 	}
 	if *netTcp {
