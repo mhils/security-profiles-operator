@@ -30,7 +30,6 @@ func main() {
 	var netTcp = flag.Bool("net-tcp", false, "spawn a tcp server")
 	var netUdp = flag.Bool("net-udp", false, "spawn a udp server")
 	var netIcmp = flag.Bool("net-icmp", false, "open an icmp socket, exercise NET_RAW capability.")
-	var hugePage = flag.Bool("huge-page", false, "request a huge page")
 	var library = flag.String("load-library", "", "load a shared library")
 	var crash = flag.Bool("crash", false, "crash instead of exiting.")
 
@@ -91,20 +90,6 @@ func main() {
 			log.Println("✅ ICMP socket opened: fd", fd)
 		}
 		defer syscall.Close(fd)
-	}
-	if *hugePage {
-		_, err := syscall.Mmap(
-			-1,
-			0,
-			2048,
-			syscall.PROT_READ|syscall.PROT_WRITE,
-			syscall.MAP_PRIVATE|syscall.MAP_ANONYMOUS|syscall.MAP_HUGETLB,
-		)
-		if err != nil {
-			log.Fatal("❌ Error requesting huge page: ", err)
-		} else {
-			log.Println("✅ Huge page request successful.")
-		}
 	}
 	if len(subprocess) > 0 {
 		cmd := exec.Command(subprocess[0], subprocess[1:]...)
