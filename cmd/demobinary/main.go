@@ -15,6 +15,7 @@ import (
 	"os/exec"
 	"strings"
 	"syscall"
+	"time"
 )
 
 var LOGPREFIX_ENV_VAR = "LOGPREFIX"
@@ -31,6 +32,7 @@ func main() {
 	var netUdp = flag.Bool("net-udp", false, "spawn a udp server")
 	var netIcmp = flag.Bool("net-icmp", false, "open an icmp socket, exercise NET_RAW capability.")
 	var library = flag.String("load-library", "", "load a shared library")
+	var sleep = flag.Int("sleep", 0, "sleep N seconds before exiting.")
 	var crash = flag.Bool("crash", false, "crash instead of exiting.")
 
 	flag.Parse()
@@ -108,6 +110,10 @@ func main() {
 		} else {
 			log.Println("✅ Library loaded successfully:", *library)
 		}
+	}
+	if *sleep > 0 {
+		log.Println("⏳ Sleeping for", *sleep, "seconds...")
+		time.Sleep(time.Duration(*sleep) * time.Second)
 	}
 	if *crash {
 		log.Println("🫡  Terminating with SIGKILL...")
