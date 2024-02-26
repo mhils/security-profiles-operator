@@ -104,15 +104,15 @@ cert-manager via `kubectl`, if you're **not** running on
 [OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift):
 
 ```sh
-$ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.2/cert-manager.yaml
-$ kubectl --namespace cert-manager wait --for condition=ready pod -l app.kubernetes.io/instance=cert-manager
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.2/cert-manager.yaml
+kubectl --namespace cert-manager wait --for condition=ready pod -l app.kubernetes.io/instance=cert-manager
 ```
 
 OpenShift ships it's own CA injector which means we can skip installing
 cert-manager. After this step, apply the operator manifest:
 
 ```sh
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/security-profiles-operator/main/deploy/operator.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/security-profiles-operator/main/deploy/operator.yaml
 ```
 
 ### Installation using OLM from operatorhub.io
@@ -149,14 +149,14 @@ itself is [installed](https://operator-framework.github.io/olm-book/docs/install
 SPO using the provided manifest:
 
 ```sh
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/security-profiles-operator/main/examples/olm/operatorhub-io.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/security-profiles-operator/main/examples/olm/operatorhub-io.yaml
 ```
 
 SPO would be then installed in the `security-profiles-operator` namespace. To troubleshoot the installation,
 check the state of the `Subscription`, `CSV` and `InstallPlan` objects in the `security-profiles-operator` namespace:
 
 ```sh
-$ kubectl get ip,csv,sub -nsecurity-profiles-operator
+kubectl get ip,csv,sub -nsecurity-profiles-operator
 ```
 
 ### Installation using OLM using upstream catalog and bundle
@@ -166,7 +166,7 @@ and after every commit to the `main` branch. Provided that your cluster uses OLM
 (see above) you can install SPO using:
 
 ```sh
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/security-profiles-operator/main/examples/olm/install-resources.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/security-profiles-operator/main/examples/olm/install-resources.yaml
 ```
 
 Note that on OpenShift, the OLM catalogs are deployed into the `openshift-marketplace` namespace, so you'd
@@ -174,7 +174,7 @@ need to replace the namespaces before deploying:
 
 ```shell
 manifest=https://raw.githubusercontent.com/kubernetes-sigs/security-profiles-operator/main/examples/olm/install-resources.yaml
-$ curl $manifest | sed "s#olm#openshift-marketplace#g" | oc apply -f -
+curl $manifest | sed "s#olm#openshift-marketplace#g" | oc apply -f -
 ```
 
 ### Installation using helm
@@ -602,7 +602,7 @@ webhook and `spo.x-k8s.io/enable-recording` for the recording webhook by
 default. The labels can be set with a simple `kubectl label` command:
 
 ```sh
-$ kubectl label ns spo-test spo.x-k8s.io/enable-recording=
+kubectl label ns spo-test spo.x-k8s.io/enable-recording=
 ```
 
 Note that the labels' values are not important, only their presence matters.
@@ -1503,13 +1503,13 @@ spec:
 And patch the `spod/spod` instance:
 
 ```shell
-$ kubectl -nsecurity-profiles-operator patch spod spod -p $(cat /tmp/spod-wh.patch) --type=merge
+kubectl -nsecurity-profiles-operator patch spod spod -p $(cat /tmp/spod-wh.patch) --type=merge
 ```
 
 To view the resulting `MutatingWebhookConfiguration`, call:
 
 ```shell
-$ kubectl get MutatingWebhookConfiguration spo-mutating-webhook-configuration -oyaml
+kubectl get MutatingWebhookConfiguration spo-mutating-webhook-configuration -oyaml
 ```
 
 ## Troubleshooting
@@ -2140,6 +2140,6 @@ specify which platform to pull:
 To uninstall, remove the profiles before removing the rest of the operator:
 
 ```sh
-$ kubectl delete seccompprofiles --all --all-namespaces
-$ kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/security-profiles-operator/main/deploy/operator.yaml
+kubectl delete seccompprofiles --all --all-namespaces
+kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/security-profiles-operator/main/deploy/operator.yaml
 ```
