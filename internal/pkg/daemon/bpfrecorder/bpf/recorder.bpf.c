@@ -53,16 +53,16 @@ struct {
 } pid_mntns SEC(".maps");
 
 struct {
-    __uint(type, BPF_MAP_TYPE_RINGBUF);
-    __uint(max_entries, 1 << 24);
-} events SEC(".maps");
-
-struct {
     __uint(type, BPF_MAP_TYPE_LRU_HASH);
     __uint(max_entries, MAX_CHILD_PIDS);
     __type(key, u32);
     __type(value, bool);
 } child_pids SEC(".maps");
+
+struct {
+    __uint(type, BPF_MAP_TYPE_RINGBUF);
+    __uint(max_entries, 1 << 24);
+} events SEC(".maps");
 
 struct event_t {
     u32 pid;
