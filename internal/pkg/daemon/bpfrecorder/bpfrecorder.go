@@ -115,8 +115,8 @@ type BpfRecorder struct {
 	lockRecordedSocketsUse   sync.Mutex
 	recordedCapabilities     []string
 	lockRecordedCapabilities sync.Mutex
-	lockAppArmorRecording    sync.Mutex
 	recorderBackend          recorderInterface
+	recordedExits            sync.Map
 }
 
 type bpfAppArmorEvent struct {
@@ -251,10 +251,6 @@ func (b *BpfRecorder) Syscalls() *bpf.BPFMap {
 
 func (b *BpfRecorder) GetAppArmorProcessed() BpfAppArmorProcessed {
 	var processed BpfAppArmorProcessed
-
-	// validating that the process exited.
-	// TODO: should this be subject to a flag for the Kubernetes controller integration?
-	b.lockAppArmorRecording.Lock()
 
 	processed.FileProcessed = b.processExecFsEvents()
 	processed.Socket = b.recordedSocketsUse
@@ -918,7 +914,8 @@ func (b *BpfRecorder) handleAppArmorEvents(apparmorEvents chan []byte) {
 		case uint8(probeTypeCap):
 			b.handleAppArmorCapabilityEvents(&apparmorEvent)
 		case uint8(probeTypeExit):
-			b.lockAppArmorRecording.Unlock()
+			done, _ := b.recordedExits.LoadOrStore(apparmorEvent.Pid, make(chan bool))
+			close(done.(chan bool))
 		}
 	}
 }
@@ -1191,4 +1188,17 @@ func (b *BpfRecorder) syscallNameForID(id int) (string, error) {
 
 	b.syscallIDtoNameCache.Set(key, name, ttlcache.DefaultTTL)
 	return name, nil
+}
+
+func (b *BpfRecorder) WaitForPidExit(pid uint32, timeout time.Duration) error {
+
+	d, _ := b.recordedExits.LoadOrStore(pid, make(chan bool))
+	done := d.(chan bool)
+
+	select {
+	case <-done:
+		return nil
+	case <-time.After(timeout):
+		return fmt.Errorf("timeout after %v", timeout)
+	}
 }

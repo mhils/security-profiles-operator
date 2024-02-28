@@ -28,6 +28,7 @@ import (
 	"runtime"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/containers/common/pkg/seccomp"
 	"github.com/go-logr/logr"
@@ -88,6 +89,11 @@ func (r *Recorder) Run() error {
 	}
 
 	if (r.options.typ == TypeApparmor) || (r.options.typ == TypeRawAppArmor) {
+		log.Println("Waiting for events processor to catch up...")
+		if err := r.WaitForPidExit(r.bpfRecorder, pid, 10*time.Second); err != nil {
+			log.Printf("Did not register exit signal for pid %d: %v", pid, err)
+		}
+
 		if err := r.processAppArmorData(); err != nil {
 			return fmt.Errorf("build profile: %w", err)
 		}
