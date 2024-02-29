@@ -550,7 +550,6 @@ func (b *BpfRecorder) Load(startEventProcessor bool) (err error) {
 		BPFObjName: "recorder.bpf.o",
 		BTFObjPath: b.btfPath,
 	})
-
 	if err != nil {
 		return fmt.Errorf("load bpf module: %w", err)
 	}
@@ -914,8 +913,13 @@ func (b *BpfRecorder) handleAppArmorEvents(apparmorEvents chan []byte) {
 		case uint8(probeTypeCap):
 			b.handleAppArmorCapabilityEvents(&apparmorEvent)
 		case uint8(probeTypeExit):
-			done, _ := b.recordedExits.LoadOrStore(apparmorEvent.Pid, make(chan bool))
-			close(done.(chan bool))
+			d, _ := b.recordedExits.LoadOrStore(apparmorEvent.Pid, make(chan bool))
+			done, ok := d.(chan bool)
+			if !ok {
+				b.logger.Info("unexpected recordedExits type")
+				return
+			}
+			close(done)
 		}
 	}
 }
@@ -993,6 +997,11 @@ func (b *BpfRecorder) handleEvent(event []byte) {
 
 	pid := e.Pid
 	mntns := e.Mntns
+
+	if b.clientset == nil {
+		// spoc: we're running outside of a kubernetes context.
+		return
+	}
 
 	// Look up the container ID based on PID from cgroup file.
 	containerID, err := b.ContainerIDForPID(b.pidToContainerIDCache, int(pid))
@@ -1191,9 +1200,11 @@ func (b *BpfRecorder) syscallNameForID(id int) (string, error) {
 }
 
 func (b *BpfRecorder) WaitForPidExit(pid uint32, timeout time.Duration) error {
-
 	d, _ := b.recordedExits.LoadOrStore(pid, make(chan bool))
-	done := d.(chan bool)
+	done, ok := d.(chan bool)
+	if !ok {
+		return fmt.Errorf("unexpected type: %T", d)
+	}
 
 	select {
 	case <-done:
