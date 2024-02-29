@@ -134,9 +134,9 @@ static __always_inline int load_args(const char ** filename, u64 * flags)
  * get_mntns returns the mntns in case the call should be taken into account.
  * 0 is returned when the process should not be processed. The following
  * criteria are used:
- *   - host processes are excluded
+ *   - host processes are excluded (if system mntns is set)
  *   - child processes are included
- *   - program name if filtering on this is required
+ *   - program name if filter is active
  */
 static __always_inline u32 get_mntns()
 {
