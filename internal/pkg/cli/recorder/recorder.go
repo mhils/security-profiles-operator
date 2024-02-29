@@ -45,6 +45,8 @@ import (
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/util"
 )
 
+const waitForPidExitTimeout = 10 * time.Second
+
 // Recorder is the main structure of this package.
 type Recorder struct {
 	impl
@@ -73,34 +75,46 @@ func (r *Recorder) Run() error {
 	}
 	defer r.UnloadBpfRecorder(r.bpfRecorder)
 
-	cmd := command.New(r.options.commandOptions)
-	pid, err := r.CommandRun(cmd)
-	if err != nil {
-		return fmt.Errorf("run command: %w", err)
-	}
-
-	mntns, err := r.FindProcMountNamespace(r.bpfRecorder, pid)
-	if err != nil {
-		return fmt.Errorf("finding mntns for command PID %d: %w", pid, err)
-	}
-
-	if err := r.CommandWait(cmd); err != nil {
-		log.Printf("Command did not exit successfully: %v", err)
-	}
-
-	if (r.options.typ == TypeApparmor) || (r.options.typ == TypeRawAppArmor) {
-		log.Println("Waiting for events processor to catch up...")
-		if err := r.WaitForPidExit(r.bpfRecorder, pid, 10*time.Second); err != nil {
-			log.Printf("Did not register exit signal for pid %d: %v", pid, err)
-		}
-
-		if err := r.processAppArmorData(); err != nil {
-			return fmt.Errorf("build profile: %w", err)
-		}
+	var mntns uint32
+	if r.options.noStart {
+		// command execution is managed externally,
+		// so we play dumb and just wait for SIGINT.
+		ch := make(chan os.Signal, 1)
+		r.Notify(ch, os.Interrupt)
+		log.Printf("Waiting for CTRL+C / SIGINT...")
+		<-ch
 	} else {
-		if err := r.processData(mntns); err != nil {
-			return fmt.Errorf("build profile: %w", err)
+		cmd := command.New(r.options.commandOptions)
+		pid, err := r.CommandRun(cmd)
+		if err != nil {
+			return fmt.Errorf("run command: %w", err)
 		}
+
+		mntns, err = r.FindProcMountNamespace(r.bpfRecorder, pid)
+		if err != nil {
+			return fmt.Errorf("finding mntns for command PID %d: %w", pid, err)
+		}
+
+		if err := r.CommandWait(cmd); err != nil {
+			log.Printf("Command did not exit successfully: %v", err)
+		}
+
+		if (r.options.typ == TypeApparmor) || (r.options.typ == TypeRawAppArmor) {
+			log.Println("Waiting for events processor to catch up...")
+			if err := r.WaitForPidExit(r.bpfRecorder, pid, waitForPidExitTimeout); err != nil {
+				log.Printf("Did not register exit signal for pid %d: %v", pid, err)
+			}
+		}
+	}
+
+	var err error
+	if (r.options.typ == TypeApparmor) || (r.options.typ == TypeRawAppArmor) {
+		err = r.processAppArmorData()
+	} else {
+		err = r.processData(mntns)
+	}
+	if err != nil {
+		return fmt.Errorf("build profile: %w", err)
 	}
 
 	return nil
@@ -109,20 +123,22 @@ func (r *Recorder) Run() error {
 func (r *Recorder) processData(mntns uint32) error {
 	log.Printf("Processing recorded data")
 
+	syscalls := []string{}
+	foundMntns := false
 	it := r.SyscallsIterator(r.bpfRecorder)
 	for r.IteratorNext(it) {
 		currentMntns := binary.LittleEndian.Uint32(r.IteratorKey(it))
-		if currentMntns != mntns {
+		if mntns != 0 && currentMntns != mntns {
 			continue
 		}
-		log.Printf("Found process mntns %d in bpf map", mntns)
+		foundMntns = true
+		log.Printf("Found process mntns %d in bpf map", currentMntns)
 
 		syscallsValue, err := r.SyscallsGetValue(r.bpfRecorder, currentMntns)
 		if err != nil {
 			return fmt.Errorf("get syscalls from bpf map: %w", err)
 		}
 
-		syscalls := []string{}
 		for id, found := range syscallsValue {
 			if found != 0 {
 				name, err := r.GetName(libseccomp.ScmpSyscall(id))
@@ -133,16 +149,17 @@ func (r *Recorder) processData(mntns uint32) error {
 				syscalls = append(syscalls, name)
 			}
 		}
-
-		log.Printf("Got syscalls: %s", strings.Join(syscalls, ", "))
-		if err := r.buildProfile(syscalls); err != nil {
-			return fmt.Errorf("build profile: %w", err)
-		}
-
-		return nil
+	}
+	if !foundMntns {
+		return fmt.Errorf("find mntns %d in bpf data map", mntns)
 	}
 
-	return fmt.Errorf("find mntns %d in bpf data map", mntns)
+	log.Printf("Got syscalls: %s", strings.Join(syscalls, ", "))
+	if err := r.buildProfile(syscalls); err != nil {
+		return fmt.Errorf("build profile: %w", err)
+	}
+
+	return nil
 }
 
 func (r *Recorder) generateAppArmorProfile() apparmorprofileapi.AppArmorAbstract {
