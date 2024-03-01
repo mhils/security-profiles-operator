@@ -6,6 +6,7 @@ require (
 	github.com/acobaugh/osrelease v0.1.0
 	github.com/aquasecurity/libbpfgo v0.6.0-libbpf-1.3
 	github.com/blang/semver/v4 v4.0.0
+	github.com/bradleyjkemp/cupaloy v2.3.0+incompatible
 	github.com/cert-manager/cert-manager v1.14.3
 	github.com/containers/common v0.57.4
 	github.com/go-logr/logr v1.4.1
@@ -26,6 +27,7 @@ require (
 	github.com/prometheus/client_model v0.6.0
 	github.com/seccomp/libseccomp-golang v0.10.0
 	github.com/sigstore/cosign/v2 v2.2.3
+	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.8.4
 	github.com/urfave/cli/v2 v2.27.1
 	golang.org/x/mod v0.15.0
@@ -216,7 +218,6 @@ require (
 	github.com/sigstore/rekor v1.3.4 // indirect
 	github.com/sigstore/sigstore v1.8.1 // indirect
 	github.com/sigstore/timestamp-authority v1.2.1 // indirect
-	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/skratchdot/open-golang v0.0.0-20200116055534-eef842397966 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.11.0 // indirect
