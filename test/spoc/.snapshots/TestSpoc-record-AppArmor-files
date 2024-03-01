@@ -1,0 +1,31 @@
+apiVersion: security-profiles-operator.x-k8s.io/v1alpha1
+kind: AppArmorProfile
+metadata:
+  creationTimestamp: null
+  name: demobinary
+spec:
+  abstract:
+    capability:
+      allowedCapabilities:
+      - dac_read_search
+    executable: {}
+    filesystem:
+      readOnlyPaths:
+      - ../../README.md
+      writeOnlyPaths:
+      - /dev/null
+status: {}
+
+apiVersion: security-profiles-operator.x-k8s.io/v1alpha1
+kind: AppArmorProfile
+metadata:
+  creationTimestamp: null
+  name: demobinary
+spec:
+  abstract:
+    executable: {}
+    filesystem:
+      readWritePaths:
+      - /dev/null
+status: {}
+

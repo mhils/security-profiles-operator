@@ -7,3 +7,6 @@ Vagrantfile
 build.tar.gz
 image.tar
 result
+/test/spoc/demobinary
+/test/spoc/demobinary-child
+
