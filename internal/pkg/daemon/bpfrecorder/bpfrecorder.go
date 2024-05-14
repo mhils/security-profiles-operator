@@ -27,6 +27,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"strconv"
 	"strings"
@@ -858,4 +859,15 @@ func (b *BpfRecorder) WaitForPidExit(ctx context.Context, pid uint32) error {
 	}
 	b.eventWorkers.Release(maxEventWorkers)
 	return nil
+}
+
+func BPFLSMEnabled() bool {
+	if enabled := os.Getenv("E2E_TEST_BPF_LSM_ENABLED"); enabled != "" {
+		return enabled == "1"
+	}
+	contents, err := os.ReadFile("/sys/kernel/security/lsm")
+	if err != nil {
+		return false
+	}
+	return regexp.MustCompile(`(^|,)bpf(,|$)`).Match(contents)
 }
