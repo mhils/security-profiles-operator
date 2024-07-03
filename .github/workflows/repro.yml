@@ -4,9 +4,10 @@ on:
   pull_request:
 
 jobs:
-  macos:
+  repro:
     runs-on: ubuntu-latest
     steps:
+    - run: printenv
     - name: Access Cache
       uses: actions/cache@v4
       with:
