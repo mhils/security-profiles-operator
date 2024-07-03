@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: printenv
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
     - name: Access Cache
       uses: actions/cache@v4
       with:
