@@ -1,0 +1,14 @@
+name: test
+on:
+  push:
+  pull_request:
+
+jobs:
+  macos:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Access Cache
+      uses: actions/cache@v4
+      with:
+        path: ./test
+        key: setup-go-macOS-go-1.22.4-6bde4c8e49d6c75a5fe1a352adee919a1e03f888bc0c46b7a8369620ef04cf5c
