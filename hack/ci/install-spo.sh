@@ -55,7 +55,6 @@ wait_for() {
     sleep 5
   done
 
-  k logs spod
   k logs security-profiles-operator
 
   echo "Timed out waiting for $*"
