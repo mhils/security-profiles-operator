@@ -27,6 +27,7 @@ import (
 	"sigs.k8s.io/security-profiles-operator/cmd"
 	spocli "sigs.k8s.io/security-profiles-operator/internal/pkg/cli"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/cli/converter"
+	"sigs.k8s.io/security-profiles-operator/internal/pkg/cli/installer"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/cli/merger"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/cli/puller"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/cli/pusher"
@@ -133,6 +134,13 @@ func main() {
 					Usage:   "AppArmor only: the path to the program that is confined.",
 				},
 			},
+		},
+		&cli.Command{
+			Name:      "install",
+			Aliases:   []string{"i"},
+			Usage:     "install a security profile on the local machine",
+			Action:    install,
+			ArgsUsage: "PROFILE EXECUTABLE",
 		},
 		&cli.Command{
 			Name:      "run",
@@ -271,6 +279,20 @@ func convert(ctx *cli.Context) error {
 
 	if err := converter.New(options).Run(); err != nil {
 		return fmt.Errorf("launch converter: %w", err)
+	}
+
+	return nil
+}
+
+// convert runs the `spoc install` subcommand.
+func install(ctx *cli.Context) error {
+	options, err := installer.FromContext(ctx)
+	if err != nil {
+		return fmt.Errorf("build options: %w", err)
+	}
+
+	if err := installer.New(options).Run(); err != nil {
+		return fmt.Errorf("launch installer: %w", err)
 	}
 
 	return nil
