@@ -17,11 +17,19 @@ limitations under the License.
 package command
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"os"
 	"os/exec"
+	"os/user"
+	"slices"
+	"strconv"
+	"strings"
+	"syscall"
 )
+
+var ErrNoSudoEnvironment = errors.New("not in a sudo environment")
 
 type Command struct {
 	impl
@@ -40,6 +48,12 @@ func New(options *Options) *Command {
 // Run the Command.
 func (c *Command) Run() (pid uint32, err error) {
 	c.cmd = c.Command(c.options.command, c.options.args...)
+	if c.options.DropSudoPrivileges {
+		err := c.DropSudoPrivileges()
+		if err != nil && err != ErrNoSudoEnvironment {
+			log.Printf("Failed to drop sudo privileges: %v", err)
+		}
+	}
 	if err := c.CmdStart(c.cmd); err != nil {
 		return pid, fmt.Errorf("start command: %w", err)
 	}
@@ -60,6 +74,64 @@ func (c *Command) Run() (pid uint32, err error) {
 	log.Printf("Running command with PID: %d", pid)
 
 	return pid, nil
+}
+
+func GetHomeDirectory(uid int) (string, error) {
+	usr, err := user.LookupId(fmt.Sprintf("%d", uid))
+	if err == nil && usr.HomeDir != "" {
+		return usr.HomeDir, nil
+	}
+	cmd := exec.Command(
+		"sudo",
+		fmt.Sprintf("--user=#%d", uid),
+		"--set-home",
+		"bash",
+		"-c",
+		"echo -n ~",
+	)
+	out, err := cmd.Output()
+	if err != nil {
+		return "", fmt.Errorf("home dir lookup failed: %w ", err)
+	}
+	if len(out) == 0 {
+		return "", fmt.Errorf("home dir lookup failed: no output")
+	}
+	return string(out), nil
+}
+
+func (c *Command) DropSudoPrivileges() error {
+	uid, err := strconv.Atoi(os.Getenv("SUDO_UID"))
+	if err != nil {
+		return ErrNoSudoEnvironment
+	}
+	gid, err := strconv.Atoi(os.Getenv("SUDO_GID"))
+	if err != nil {
+		return ErrNoSudoEnvironment
+	}
+	user := os.Getenv("SUDO_USER")
+	if user == "" {
+		return ErrNoSudoEnvironment
+	}
+	home, err := c.GetHomeDirectory(uid)
+	if err != nil {
+		return fmt.Errorf("failed to drop privileges: %w", err)
+	}
+
+	c.cmd.SysProcAttr = &syscall.SysProcAttr{
+		Credential: &syscall.Credential{
+			Uid: uint32(uid),
+			Gid: uint32(gid),
+		},
+	}
+	c.cmd.Env = append(
+		slices.DeleteFunc(
+			c.cmd.Environ(),
+			func(s string) bool { return strings.HasPrefix(s, "SUDO_") },
+		),
+		fmt.Sprintf("HOME=%s", home),
+		fmt.Sprintf("USER=%s", user),
+	)
+	return nil
 }
 
 func (c *Command) Wait() error {
