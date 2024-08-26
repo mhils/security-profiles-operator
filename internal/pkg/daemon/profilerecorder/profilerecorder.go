@@ -56,6 +56,7 @@ import (
 	spodv1alpha1 "sigs.k8s.io/security-profiles-operator/api/spod/v1alpha1"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/config"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/controller"
+	"sigs.k8s.io/security-profiles-operator/internal/pkg/daemon/apparmorprofile/crd2armor"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/daemon/bpfrecorder"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/daemon/enricher"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/daemon/metrics"
@@ -557,6 +558,7 @@ func (r *RecorderReconciler) collectLogSeccompProfile(
 	if err := r.ResetSyscalls(ctx, enricherClient, request); err != nil {
 		return fmt.Errorf("reset syscalls for profile %s: %w", profileID, err)
 	}
+	"sigs.k8s.io/security-profiles-operator/internal/pkg/daemon/apparmorprofile/crd2armor"
 
 	return nil
 }
@@ -867,6 +869,13 @@ func (r *RecorderReconciler) collectApparmorBpfProfile(
 	spec := apparmorprofileapi.AppArmorProfileSpec{
 		Abstract: r.generateAppArmorProfileAbstract(response),
 	}
+
+	// Stored the raw profile in the required policy field.
+	policy, err := crd2armor.GenerateProfile(profileToCollect.name, &spec.Abstract)
+	if err != nil {
+		return nil, fmt.Errorf("generating raw apparmor profile: %w", err)
+	}
+	spec.Policy = policy
 
 	profile := &apparmorprofileapi.AppArmorProfile{
 		ObjectMeta: metav1.ObjectMeta{
