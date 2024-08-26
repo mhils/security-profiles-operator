@@ -558,7 +558,6 @@ func (r *RecorderReconciler) collectLogSeccompProfile(
 	if err := r.ResetSyscalls(ctx, enricherClient, request); err != nil {
 		return fmt.Errorf("reset syscalls for profile %s: %w", profileID, err)
 	}
-	"sigs.k8s.io/security-profiles-operator/internal/pkg/daemon/apparmorprofile/crd2armor"
 
 	return nil
 }
