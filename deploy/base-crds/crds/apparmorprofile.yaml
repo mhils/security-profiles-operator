@@ -42,6 +42,7 @@ spec:
                 type: string
               abstract:
                 type: object
+                additionalProperties: true
             type: object
           status:
             description: AppArmorProfileStatus defines the observed state of AppArmorProfile
