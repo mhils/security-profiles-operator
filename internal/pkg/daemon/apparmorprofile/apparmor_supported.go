@@ -76,14 +76,15 @@ func (a *aaProfileManager) InstallProfile(bp profilebasev1alpha1.StatusBaseUser)
 	}
 
 	var policy string
-	if profile.Spec.Abstract != nil {
+	// FIXME this should be nil-able or we remove the concrete policy.
+	if profile.Spec.Abstract != (v1alpha1.AppArmorAbstract{}) {
 		var err error
 		policy, err = crd2armor.GenerateProfile(profile.GetProfileName(), &profile.Spec.Abstract)
 		if err != nil {
 			return false, fmt.Errorf("generating raw apparmor profile: %w", err)
 		}
 	}
-	if profile.Spec.Policy != nil {
+	if profile.Spec.Policy != "" {
 		if policy != "" && policy != profile.Spec.Policy {
 			return false, errors.New("abstract and concrete policy do not match")
 		}
