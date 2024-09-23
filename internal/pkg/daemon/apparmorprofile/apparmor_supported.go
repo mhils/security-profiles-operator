@@ -100,19 +100,24 @@ func (a *aaProfileManager) CustomResourceTypeName() string {
 	return customResourceTypeName
 }
 
-func loadProfile(_ logr.Logger, name, content string) (bool, error) {
+func loadProfile(logger logr.Logger, name, content string) (bool, error) {
 	mount := hostop.NewMountHostOp(hostop.WithAssumeContainer())
 	a := aa.NewAppArmor()
 
 	err := mount.Do(func() error {
+		logger.Info(fmt.Sprintf("Writing %s profile: %s %v", name, targetProfileDir, os.Stat(targetProfileDir)))
 		path := filepath.Join(targetProfileDir, name)
 		if err := os.WriteFile(path, []byte(content), 0o644); err != nil { //nolint // file permissions are fine
 			return err
 		}
 
+		logger.Info("File written")
+
 		if err := a.LoadPolicy(path); err != nil {
 			return err
 		}
+
+		logger.Info("Policy loaded")
 
 		loaded, err := a.PolicyLoaded(name)
 		if err != nil {
