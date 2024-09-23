@@ -32,6 +32,7 @@ import (
 
 	"sigs.k8s.io/security-profiles-operator/api/apparmorprofile/v1alpha1"
 	profilebasev1alpha1 "sigs.k8s.io/security-profiles-operator/api/profilebase/v1alpha1"
+	"sigs.k8s.io/security-profiles-operator/internal/pkg/daemon/apparmorprofile/crd2armor"
 )
 
 var (
@@ -74,16 +75,16 @@ func (a *aaProfileManager) InstallProfile(bp profilebasev1alpha1.StatusBaseUser)
 		return false, errors.New(errInvalidCustomResourceType)
 	}
 
-	policy := nil
+	var policy string
 	if profile.Spec.Abstract != nil {
-		err := nil
+		var err error
 		policy, err = crd2armor.GenerateProfile(profile.GetProfileName(), &profile.Spec.Abstract)
 		if err != nil {
 			return false, fmt.Errorf("generating raw apparmor profile: %w", err)
 		}
 	}
 	if profile.Spec.Policy != nil {
-		if policy != nil && policy != profile.Spec.Policy {
+		if policy != "" && policy != profile.Spec.Policy {
 			return false, errors.New("abstract and concrete policy do not match")
 		}
 		policy = profile.Spec.Policy
