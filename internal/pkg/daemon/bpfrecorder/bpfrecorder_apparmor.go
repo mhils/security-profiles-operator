@@ -20,6 +20,7 @@ limitations under the License.
 package bpfrecorder
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"path/filepath"
