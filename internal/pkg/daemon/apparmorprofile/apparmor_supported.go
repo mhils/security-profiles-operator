@@ -107,7 +107,7 @@ func loadProfile(logger logr.Logger, name, content string) (bool, error) {
 	err := mount.Do(func() error {
 		xxx, yyy := os.Stat(targetProfileDir)
 		logger.Info(fmt.Sprintf("Writing %s profile: %s %v %v", name, targetProfileDir, xxx, yyy))
-		err2 := os.MkdirAll(newpath, os.ModePerm)
+		err2 := os.MkdirAll(targetProfileDir, os.ModePerm)
 		logger.Info(fmt.Sprintf("MkdirAll: %v", err2))
 
 		path := filepath.Join(targetProfileDir, name)
