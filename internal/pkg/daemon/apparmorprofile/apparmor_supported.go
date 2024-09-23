@@ -105,7 +105,8 @@ func loadProfile(logger logr.Logger, name, content string) (bool, error) {
 	a := aa.NewAppArmor()
 
 	err := mount.Do(func() error {
-		logger.Info(fmt.Sprintf("Writing %s profile: %s %v", name, targetProfileDir, os.Stat(targetProfileDir)))
+		a, b := os.Stat(targetProfileDir)
+		logger.Info(fmt.Sprintf("Writing %s profile: %s %v %v", name, targetProfileDir, a, b))
 		path := filepath.Join(targetProfileDir, name)
 		if err := os.WriteFile(path, []byte(content), 0o644); err != nil { //nolint // file permissions are fine
 			return err
