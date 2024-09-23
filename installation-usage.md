@@ -625,12 +625,12 @@ the Pod and the SeccompProfile:
 apiVersion: security-profiles-operator.x-k8s.io/v1alpha1
 kind: ProfileBinding
 metadata:
-  name: demo-binding
+  name: nginx-binding
 spec:
   profileRef:
-    kind: AppArmorProfile
+    kind: SeccompProfile
     name: profile-complain
-  image: demo
+  image: nginx:1.19.1
 ```
 
 You can enable a default profile binding by using the string "\*" as the image name.

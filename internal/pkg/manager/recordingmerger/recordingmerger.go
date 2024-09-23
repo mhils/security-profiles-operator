@@ -224,7 +224,7 @@ func (r *PolicyMergeReconciler) mergeAppArmorProfiles(
 	return r.mergeTypedProfiles(
 		ctx,
 		profileRecording,
-		createUpdateAppArmorProfile,
+		createUpdateApparmorProfile,
 		&apparmorprofileapi.AppArmorProfile{},
 		&apparmorprofileapi.AppArmorProfileList{},
 	)
@@ -264,7 +264,7 @@ func createUpdateSelinuxProfile(
 	)
 }
 
-func createUpdateAppArmorProfile(
+func createUpdateApparmorProfile(
 	ctx context.Context,
 	cl client.Client,
 	profileRecording *profilerecording1alpha1.ProfileRecording,

@@ -29,6 +29,7 @@ import (
 	"github.com/sigstore/cosign/v2/cmd/cosign/cli/generate"
 	"github.com/sigstore/cosign/v2/cmd/cosign/cli/options"
 	"github.com/sigstore/cosign/v2/cmd/cosign/cli/verify"
+	"oras.land/oras-go/v2"
 	"oras.land/oras-go/v2/registry/remote/auth"
 	"oras.land/oras-go/v2/registry/remote/retry"
 
@@ -63,8 +64,8 @@ func (p *PullResult) SelinuxProfile() *selinuxprofileapi.SelinuxProfile {
 	return p.selinuxProfile
 }
 
-// AppArmorProfile returns the apparmor profile of the PullResult.
-func (p *PullResult) AppArmorProfile() *apparmorprofileapi.AppArmorProfile {
+// ApparmorProfile returns the apparmor profile of the PullResult.
+func (p *PullResult) ApparmorProfile() *apparmorprofileapi.AppArmorProfile {
 	return p.apparmorProfile
 }
 

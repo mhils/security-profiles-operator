@@ -64,7 +64,7 @@ spec:
                 enum:
                 - SeccompProfile
                 - SelinuxProfile
-                - AppArmorProfile
+                - ApparmorProfile
                 type: string
               mergeStrategy:
                 default: none
