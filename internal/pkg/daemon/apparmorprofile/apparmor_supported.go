@@ -91,7 +91,7 @@ func (a *aaProfileManager) InstallProfile(bp profilebasev1alpha1.StatusBaseUser)
 		policy = profile.Spec.Policy
 	}
 
-	logger.Info(fmt.Sprintf("Loading AppArmorProfile: %s %s", profile.GetProfileName(), policy))
+	a.logger.Info(fmt.Sprintf("Loading AppArmorProfile: %s %s", profile.GetProfileName(), policy))
 
 	return a.loadProfile(a.logger, profile.GetProfileName(), policy)
 }
