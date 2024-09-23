@@ -31,7 +31,7 @@ type ProfileRecordingKind string
 const (
 	ProfileRecordingKindSeccompProfile  ProfileRecordingKind = "SeccompProfile"
 	ProfileRecordingKindSelinuxProfile  ProfileRecordingKind = "SelinuxProfile"
-	ProfileRecordingKindAppArmorProfile ProfileRecordingKind = "ApparmorProfile"
+	ProfileRecordingKindAppArmorProfile ProfileRecordingKind = "AppArmorProfile"
 )
 
 type ProfileRecorder string

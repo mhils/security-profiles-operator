@@ -62,7 +62,7 @@ func (p *Puller) Run() error {
 		name = result.SelinuxProfile().GetName()
 
 	case artifact.PullResultTypeApparmorProfile:
-		name = result.ApparmorProfile().GetName()
+		name = result.AppArmorProfile().GetName()
 	}
 	log.Printf("Got %s: %s", result.Type(), name)
 

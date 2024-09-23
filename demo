@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -x
+
+while true
+do
+  cat /tmp/foo.txt /tmp/$(date -Iseconds).txt
+  sleep 5
+done

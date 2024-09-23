@@ -44,5 +44,5 @@ const (
 	PullResultTypeSelinuxProfile PullResultType = "SelinuxProfile"
 
 	// PullResultTypeApparmorProfile is referencing a AppArmor profile.
-	PullResultTypeApparmorProfile PullResultType = "ApparmorProfile"
+	PullResultTypeApparmorProfile PullResultType = "AppArmorProfile"
 )
