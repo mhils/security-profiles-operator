@@ -40,8 +40,8 @@ spec:
             properties:
               policy:
                 type: string
-            required:
-            - policy
+              abstract:
+                type: object
             type: object
           status:
             description: AppArmorProfileStatus defines the observed state of AppArmorProfile
