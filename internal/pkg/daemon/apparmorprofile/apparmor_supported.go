@@ -74,7 +74,22 @@ func (a *aaProfileManager) InstallProfile(bp profilebasev1alpha1.StatusBaseUser)
 		return false, errors.New(errInvalidCustomResourceType)
 	}
 
-	return a.loadProfile(a.logger, profile.GetProfileName(), profile.Spec.Policy)
+	policy := nil
+	if profile.Spec.Abstract != nil {
+		err := nil
+		policy, err = crd2armor.GenerateProfile(profile.GetProfileName(), &profile.Spec.Abstract)
+		if err != nil {
+			return false, fmt.Errorf("generating raw apparmor profile: %w", err)
+		}
+	}
+	if profile.Spec.Policy != nil {
+		if policy != nil && policy != profile.Spec.Policy {
+			return false, errors.New("abstract and concrete policy do not match")
+		}
+		policy = profile.Spec.Policy
+	}
+
+	return a.loadProfile(a.logger, profile.GetProfileName(), policy)
 }
 
 func (a *aaProfileManager) CustomResourceTypeName() string {
