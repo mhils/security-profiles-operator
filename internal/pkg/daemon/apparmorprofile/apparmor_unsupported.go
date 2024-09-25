@@ -30,7 +30,7 @@ import (
 var errAppArmorNotSupported = errors.New("apparmor not enabled in this build")
 
 func (a *aaProfileManager) Enabled() bool {
-	return true
+	return false
 }
 
 func (a *aaProfileManager) RemoveProfile(profilebasev1alpha1.StatusBaseUser) error {

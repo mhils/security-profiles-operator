@@ -106,23 +106,23 @@ func loadProfile(logger logr.Logger, name, content string) (bool, error) {
 	a := aa.NewAppArmor()
 
 	err := mount.Do(func() error {
-		xxx, yyy := os.Stat(targetProfileDir)
-		logger.Info(fmt.Sprintf("Writing %s profile: %s %v %v", name, targetProfileDir, xxx, yyy))
-		err2 := os.MkdirAll(targetProfileDir, os.ModePerm)
-		logger.Info(fmt.Sprintf("MkdirAll: %v", err2))
+		//xxx, yyy := os.Stat(targetProfileDir)
+		//logger.Info(fmt.Sprintf("Writing %s profile: %s %v %v", name, targetProfileDir, xxx, yyy))
+		//err2 := os.MkdirAll(targetProfileDir, os.ModePerm)
+		//logger.Info(fmt.Sprintf("MkdirAll: %v", err2))
 
 		path := filepath.Join(targetProfileDir, name)
 		if err := os.WriteFile(path, []byte(content), 0o644); err != nil { //nolint // file permissions are fine
 			return err
 		}
 
-		logger.Info("File written")
+		//logger.Info("File written")
 
 		if err := a.LoadPolicy(path); err != nil {
 			return err
 		}
 
-		logger.Info("Policy loaded")
+		//logger.Info("Policy loaded")
 
 		loaded, err := a.PolicyLoaded(name)
 		if err != nil {
