@@ -87,8 +87,8 @@ type AppArmorProfile struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   AppArmorProfileSpec    `json:"spec,omitempty"`
-	Status *AppArmorProfileStatus `json:"status,omitempty"`
+	Spec   AppArmorProfileSpec   `json:"spec,omitempty"`
+	Status AppArmorProfileStatus `json:"status,omitempty"`
 }
 
 func (sp *AppArmorProfile) GetStatusBase() *profilebasev1alpha1.StatusBase {
