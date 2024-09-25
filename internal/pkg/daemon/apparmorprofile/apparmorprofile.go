@@ -125,10 +125,13 @@ func (r *Reconciler) Reconcile(ctx context.Context, req reconcile.Request) (reco
 			)
 		}
 
+		f, err := os.ReadFile("/sys/module/apparmor/parameters/enabled")
+		logger.Error(err, fmt.Sprintf("/sys/module/apparmor/parameters/enabled %v %v", f, err))
+
 		// Do not requeue (will be requeued if a change to the object is
 		// observed, or after the usually very long reconcile timeout
 		// configured for the controller manager)
-		return reconcile.Result{}, nil
+		// return reconcile.Result{}, nil
 	}
 
 	appArmorProfile := &v1alpha1.AppArmorProfile{}
