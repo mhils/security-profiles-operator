@@ -22,7 +22,6 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"strings"
 	"time"
 
 	"github.com/go-logr/logr"
@@ -125,11 +124,6 @@ func (r *Reconciler) Reconcile(ctx context.Context, req reconcile.Request) (reco
 				err.Error(),
 			)
 		}
-
-		f, err := os.ReadFile("/sys/module/apparmor/parameters/enabled")
-		a := aa.NewAppArmor()
-		en1, en2 := a.Enabled()
-		logger.Error(err, fmt.Sprintf("/sys/module/apparmor/parameters/enabled %v %v contains:%v en:%v %v", f, err, strings.Contains(string(f), "Y"), en1, en2))
 
 		// Do not requeue (will be requeued if a change to the object is
 		// observed, or after the usually very long reconcile timeout
