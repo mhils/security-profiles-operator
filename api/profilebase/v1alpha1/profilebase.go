@@ -86,7 +86,7 @@ func ListProfilesByRecording(
 // StatusBase contains common attributes for a profile's status.
 type StatusBase struct {
 	spodv1alpha1.ConditionedStatus `json:",inline"`
-	Status                         secprofnodestatusv1alpha1.ProfileState `json:"status,omitempty"`
+	Status                         *secprofnodestatusv1alpha1.ProfileState `json:"status,omitempty"`
 }
 
 type StatusBaseUser interface {
