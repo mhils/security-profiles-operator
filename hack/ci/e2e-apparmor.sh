@@ -57,7 +57,7 @@ spec:
   containers:
   - name: $pod_name
     image: alpine:3
-    command: ["sleep", "$sleep_interval"]
+    command: ["/bin/sh", "-c", "touch /tmp/foo && sleep $sleep_interval"]
 EOT
 
   if [[ -n "$apparmor_profile" ]]; then
@@ -128,7 +128,7 @@ check_apparmor_profile_recording() {
   echo "Deleting pod $PODNAME"
   k delete -f "$pod_file"
 
-  echo "Deleting profile recoridng $RECORDING_NAME"
+  echo "Deleting profile recording $RECORDING_NAME"
   k delete -f "$APPARMOR_RECORDING_FILE"
 
   wait_for apparmorprofile $APPARMOR_PROFILE_NAME
@@ -137,7 +137,7 @@ check_apparmor_profile_recording() {
   echo "Verifying apparmor profile"
   echo "--------------------------"
 
-  echo "Checking the recorded appamror profile matches the reference"
+  echo "Checking the recorded apparmor profile matches the reference"
   check_apparmor_profile
 
   echo "Creating pod $PODNAME with recorded profile in security context"
