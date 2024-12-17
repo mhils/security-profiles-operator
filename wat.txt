@@ -1,0 +1,971 @@
+           <...>-9742    [002] d...1   452.221323: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9742    [002] dN..1   452.221354: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9743    [003] d...1   452.227751: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=kubelet
+           <...>-9743    [003] d...1   452.227752: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=kubelet
+           <...>-9743    [003] d...1   452.227847: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=ip6tables
+           <...>-9743    [003] d...1   452.227848: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=ip6tables
+           <...>-9744    [000] d...1   452.250355: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-9744    [000] d...1   452.250357: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-9744    [001] d...1   452.250471: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+           <...>-9744    [001] d...1   452.250472: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+           <...>-9744    [002] d...1   452.251027: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+           <...>-9744    [002] d...1   452.251028: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+           <...>-9745    [001] d...1   458.373521: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-9745    [001] d...1   458.373522: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-9745    [001] d...1   458.373607: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+           <...>-9745    [001] d...1   458.373608: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+           <...>-9745    [001] d...1   458.374074: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+           <...>-9745    [001] d...1   458.374075: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+           <...>-9746    [002] d...1   458.375082: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-9746    [002] d...1   458.375083: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-9746    [002] d...1   458.375157: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+           <...>-9746    [002] d...1   458.375158: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+           <...>-9746    [000] d...1   458.375701: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+           <...>-9746    [000] d...1   458.375716: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+           <...>-9747    [003] d...1   459.557062: bpf_trace_printk: send event pid: 9747, mntns: 4026532318
+
+           <...>-9747    [003] d...1   459.557065: bpf_trace_printk: send event pid: 9747, mntns: 4026532318
+
+           <...>-9747    [003] d...1   459.557086: bpf_trace_printk: sys_enter_execve mntns=4026532318 comm=kube-proxy
+           <...>-9747    [003] d...1   459.557087: bpf_trace_printk: sys_enter_execve mntns=4026532318 comm=kube-proxy
+           <...>-9747    [003] d...1   459.557214: bpf_trace_printk: sched_process_exec mntns=4026532318 comm=ip6tables
+           <...>-9747    [003] d...1   459.557215: bpf_trace_printk: sched_process_exec mntns=4026532318 comm=ip6tables
+           <...>-9748    [001] d...1   459.560511: bpf_trace_printk: send event pid: 9748, mntns: 4026532318
+
+           <...>-9748    [001] d...1   459.560513: bpf_trace_printk: send event pid: 9748, mntns: 4026532318
+
+           <...>-9748    [001] d...1   459.560533: bpf_trace_printk: sys_enter_execve mntns=4026532318 comm=kube-proxy
+           <...>-9748    [001] d...1   459.560534: bpf_trace_printk: sys_enter_execve mntns=4026532318 comm=kube-proxy
+           <...>-9748    [001] d...1   459.560657: bpf_trace_printk: sched_process_exec mntns=4026532318 comm=iptables
+           <...>-9748    [001] d...1   459.560658: bpf_trace_printk: sched_process_exec mntns=4026532318 comm=iptables
+           <...>-9756    [003] d...1   460.007932: bpf_trace_printk: send event pid: 9756, mntns: 4026532224
+
+           <...>-9756    [003] d...1   460.007935: bpf_trace_printk: send event pid: 9756, mntns: 4026532224
+
+           <...>-9757    [001] d...1   460.008221: bpf_trace_printk: send event pid: 9757, mntns: 4026532224
+
+           <...>-9757    [001] d...1   460.008223: bpf_trace_printk: send event pid: 9757, mntns: 4026532224
+
+           <...>-9758    [000] d...1   460.009453: bpf_trace_printk: send event pid: 9758, mntns: 4026532224
+
+           <...>-9758    [000] d...1   460.009455: bpf_trace_printk: send event pid: 9758, mntns: 4026532224
+
+           <...>-9758    [000] d...1   460.009545: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+           <...>-9758    [000] d...1   460.009546: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+           <...>-9758    [000] d...1   460.009709: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifplugd.agent
+           <...>-9758    [000] d...1   460.009710: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifplugd.agent
+           <...>-9760    [001] d...1   460.010608: bpf_trace_printk: send event pid: 9760, mntns: 4026532224
+
+           <...>-9760    [001] d...1   460.010610: bpf_trace_printk: send event pid: 9760, mntns: 4026532224
+
+           <...>-9760    [001] d...1   460.010693: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+           <...>-9760    [001] d...1   460.010694: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+           <...>-9760    [001] d...1   460.010839: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=net-interface-h
+           <...>-9760    [001] d...1   460.010840: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=net-interface-h
+           <...>-9761    [000] d...1   460.011717: bpf_trace_printk: send event pid: 9761, mntns: 4026532224
+
+           <...>-9761    [000] d...1   460.011719: bpf_trace_printk: send event pid: 9761, mntns: 4026532224
+
+           <...>-9761    [000] d...1   460.011802: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+           <...>-9761    [000] d...1   460.011803: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+           <...>-9761    [000] d...1   460.011936: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifupdown-hotplu
+           <...>-9761    [000] d...1   460.011937: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifupdown-hotplu
+           <...>-9762    [000] d...1   460.031616: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9762    [000] d...1   460.031617: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9762    [000] d...1   460.031685: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=host-local
+           <...>-9762    [000] d...1   460.031686: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=host-local
+           <...>-9767    [000] d...1   460.033373: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9767    [000] d...1   460.033374: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9767    [000] d...1   460.033491: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9767    [000] d...1   460.033492: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9768    [003] d...1   460.034280: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9768    [003] d...1   460.034281: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9768    [003] d...1   460.034365: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9768    [003] d...1   460.034366: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9769    [000] d...1   460.035561: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9769    [000] d...1   460.035562: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9769    [000] d...1   460.035640: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9769    [000] d...1   460.035641: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9770    [003] d...1   460.036786: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9770    [003] d...1   460.036787: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9770    [003] d...1   460.036899: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9770    [003] d...1   460.036900: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9771    [000] d...1   460.037687: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9771    [000] d...1   460.037688: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9771    [000] d...1   460.037758: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9771    [000] d...1   460.037759: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9772    [003] d...1   460.067776: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9772    [003] d...1   460.067778: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-9772    [003] d...1   460.067928: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9772    [003] d...1   460.067929: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-9773    [003] d...1   460.243498: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=kubelet
+           <...>-9773    [003] d...1   460.243499: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=kubelet
+           <...>-9773    [003] d...1   460.243611: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=umount
+           <...>-9773    [003] d...1   460.243612: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=umount
+           <...>-9774    [001] d...1   462.416318: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=systemd-user-ru
+           <...>-9774    [001] d...1   462.416320: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=systemd-user-ru
+           <...>-9775    [001] d...1   479.440954: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=security-profil
+           <...>-9775    [001] d...1   479.440956: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=security-profil
+           <...>-9775    [001] d...1   479.441079: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=apparmor_parser
+           <...>-9775    [001] d...1   479.441080: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=apparmor_parser
+           <...>-9777    [001] d...1   489.557063: bpf_trace_printk: send event pid: 9777, mntns: 4026532318
+
+           <...>-9777    [001] d...1   489.557066: bpf_trace_printk: send event pid: 9777, mntns: 4026532318
+
+           <...>-9777    [001] d...1   489.557087: bpf_trace_printk: sys_enter_execve mntns=4026532318 comm=kube-proxy
+           <...>-9777    [001] d...1   489.557088: bpf_trace_printk: sys_enter_execve mntns=4026532318 comm=kube-proxy
+           <...>-9777    [001] d...1   489.557271: bpf_trace_printk: sched_process_exec mntns=4026532318 comm=ip6tables
+           <...>-9781    [003] d...1   501.505454: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(time-dir)
+           <...>-9781    [003] d...1   501.505456: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(time-dir)
+           <...>-9788    [003] d...1   501.632225: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(ystemctl)
+           <...>-9788    [003] d...1   501.632226: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(ystemctl)
+           <...>-9789    [003] d...1   501.636246: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(podman)
+           <...>-9789    [003] d...1   501.636247: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(podman)
+           <...>-9795    [000] d...1   501.642626: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+           <...>-9795    [000] d...1   501.642627: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+           <...>-9795    [000] d...1   501.642714: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sh
+           <...>-9795    [000] d...1   501.642715: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sh
+           <...>-9796    [003] d...1   501.643206: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sh
+           <...>-9796    [003] d...1   501.643207: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sh
+           <...>-9796    [003] d...1   501.643313: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=env
+           <...>-9796    [003] d...1   501.643314: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=env
+           uname-9802    [000] d...1   501.647377: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+           uname-9802    [000] d...1   501.647378: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+           uname-9802    [000] d...1   501.647496: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+           uname-9802    [000] d...1   501.647497: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+             cut-9810    [000] d...1   501.651480: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=50-landscape-sy
+             cut-9810    [000] d...1   501.651481: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=50-landscape-sy
+             cut-9810    [000] d...1   501.651664: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cut
+             cut-9810    [000] d...1   501.651664: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cut
+          conmon-9813    [000] d...1   501.658151: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+          conmon-9813    [000] d...1   501.658152: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+          conmon-9813    [000] d...1   501.658273: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=conmon
+          conmon-9813    [000] d...1   501.658274: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=conmon
+           <...>-9820    [000] d...1   501.674926: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+           <...>-9820    [000] d...1   501.674927: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+CPU:2 [LOST 60 EVENTS]
+         gettext-9891    [002] d...1   501.911745: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=gettext
+         gettext-9891    [002] d...1   501.911746: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=gettext
+             cut-9896    [002] d...1   501.913878: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+             cut-9896    [002] d...1   501.913879: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+             cut-9896    [002] d...1   501.913950: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cut
+             cut-9896    [002] d...1   501.913951: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cut
+              id-9897    [002] d...1   501.914604: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+              id-9897    [002] d...1   501.914605: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+              id-9897    [002] d...1   501.914676: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+              id-9897    [002] d...1   501.914677: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+            grep-9904    [002] d...1   501.919795: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=97-overlayroot
+            grep-9904    [002] d...1   501.919795: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=97-overlayroot
+            grep-9904    [002] d...1   501.919869: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=egrep
+            grep-9904    [002] d...1   501.919870: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=egrep
+            grep-9904    [002] d...1   501.920245: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-9904    [002] d...1   501.920246: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-9904    [002] d...1   501.920258: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-9904    [002] d...1   501.920259: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-9904    [002] d...1   501.920266: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-9904    [002] d...1   501.920267: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-9904    [002] d...1   501.920273: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-9904    [002] d...1   501.920273: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-9904    [002] d...1   501.920337: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=grep
+            grep-9904    [002] d...1   501.920337: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=grep
+CPU:3 [LOST 60 EVENTS]
+              id-9907    [003] d...1   501.922741: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+              id-9907    [003] d...1   501.922741: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+            date-9909    [002] d...1   501.925537: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            date-9909    [002] d...1   501.925538: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            date-9909    [002] d...1   501.925605: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+            date-9909    [002] d...1   501.925605: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+            date-9911    [003] d...1   501.926194: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            date-9911    [003] d...1   501.926195: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            date-9911    [003] d...1   501.926267: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+            date-9911    [003] d...1   501.926267: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+ update-motd-reb-9913    [002] d...1   501.927559: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ update-motd-reb-9913    [002] d...1   501.927560: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ update-motd-reb-9913    [002] d...1   501.927625: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=98-reboot-requi
+ update-motd-reb-9913    [002] d...1   501.927630: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=98-reboot-requi
+ update-motd-reb-9913    [002] d...1   501.927988: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=98-reboot-requi
+ update-motd-reb-9913    [002] d...1   501.927989: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=98-reboot-requi
+ update-motd-reb-9913    [002] d...1   501.928052: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-reb
+ update-motd-reb-9913    [002] d...1   501.928053: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-reb
+             cat-9914    [003] d...1   501.928459: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-reb
+             cat-9914    [003] d...1   501.928460: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-reb
+             cat-9914    [003] d...1   501.928524: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+             cat-9914    [003] d...1   501.928525: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+ apparmor_parser-9923    [002] d...1   507.932693: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=security-profil
+ apparmor_parser-9923    [002] d...1   507.932695: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=security-profil
+ apparmor_parser-9923    [002] d...1   507.932809: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=apparmor_parser
+ apparmor_parser-9923    [002] d...1   507.932810: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=apparmor_parser
+ systemd-user-ru-9925    [002] d...1   512.185315: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(time-dir)
+ systemd-user-ru-9925    [002] d...1   512.185316: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(time-dir)
+       ip6tables-9927    [002] d...1   512.227561: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=kubelet
+       ip6tables-9927    [002] d...1   512.227563: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=kubelet
+       ip6tables-9927    [002] d...1   512.227765: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=ip6tables
+       ip6tables-9927    [002] d...1   512.227766: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=ip6tables
+CPU:1 [LOST 120 EVENTS]
+               3-9928    [001] d...1   512.264272: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+               3-9928    [001] d...1   512.264366: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+               3-9928    [001] d...1   512.264367: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+            sshd-9929    [003] d...1   515.132491: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+            sshd-9929    [003] d...1   515.132492: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+            sshd-9929    [003] d...1   515.132703: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sshd
+            sshd-9929    [003] d...1   515.132704: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sshd
+ systemd-user-ru-9931    [002] d...1   515.301890: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(time-dir)
+ systemd-user-ru-9931    [002] d...1   515.301892: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(time-dir)
+ systemd-user-ru-9931    [002] d...1   515.302159: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=systemd-user-ru
+ systemd-user-ru-9931    [002] d...1   515.302160: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=systemd-user-ru
+ 30-systemd-envi-9935    [003] d...1   515.317681: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(direxec)
+ 30-systemd-envi-9935    [003] d...1   515.317682: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(direxec)
+ 30-systemd-envi-9935    [003] d...1   515.317863: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=30-systemd-envi
+ 30-systemd-envi-9935    [003] d...1   515.317864: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=30-systemd-envi
+CPU:0 [LOST 59 EVENTS]
+ systemd-xdg-aut-9937    [000] d...1   515.320986: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(direxec)
+ systemd-xdg-aut-9937    [000] d...1   515.321135: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=systemd-xdg-aut
+ systemd-xdg-aut-9937    [000] d...1   515.321136: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=systemd-xdg-aut
+       systemctl-9938    [003] d...1   515.407815: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(ystemctl)
+       systemctl-9938    [003] d...1   515.407816: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(ystemctl)
+       systemctl-9938    [003] d...1   515.408052: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=systemctl
+       systemctl-9938    [003] d...1   515.408053: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=systemctl
+          podman-9939    [003] d...1   515.412051: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(podman)
+          podman-9939    [003] d...1   515.412052: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=(podman)
+          podman-9939    [003] d...1   515.412300: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=podman
+          podman-9939    [003] d...1   515.412301: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=podman
+              sh-9945    [003] d...1   515.418846: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+              sh-9945    [003] d...1   515.418847: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+              sh-9945    [003] d...1   515.419066: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sh
+              sh-9945    [003] d...1   515.419066: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sh
+       run-parts-9948    [001] d...1   515.420646: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sh
+       run-parts-9948    [001] d...1   515.420647: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sh
+       run-parts-9948    [001] d...1   515.420733: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=env
+       run-parts-9948    [001] d...1   515.420734: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=env
+       run-parts-9948    [001] d...1   515.421123: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+       run-parts-9948    [001] d...1   515.421124: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+       run-parts-9948    [001] d...1   515.421139: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+       run-parts-9948    [001] d...1   515.421139: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+       run-parts-9948    [001] d...1   515.421145: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+       run-parts-9948    [001] d...1   515.421146: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+       run-parts-9948    [001] d...1   515.421152: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+       run-parts-9948    [001] d...1   515.421152: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+       run-parts-9948    [001] d...1   515.421217: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=run-parts
+       run-parts-9948    [001] d...1   515.421218: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=run-parts
+       00-header-9949    [000] d...1   515.421723: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+       00-header-9949    [000] d...1   515.421725: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+       00-header-9949    [000] d...1   515.421847: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=00-header
+       00-header-9949    [000] d...1   515.421848: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=00-header
+           uname-9950    [001] d...1   515.422390: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+           uname-9950    [001] d...1   515.422391: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+           uname-9950    [001] d...1   515.422462: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+           uname-9950    [001] d...1   515.422463: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+           uname-9951    [002] d...1   515.423108: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+           uname-9951    [002] d...1   515.423109: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+           uname-9951    [002] d...1   515.423184: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+           uname-9951    [002] d...1   515.423184: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+           uname-9952    [001] d...1   515.423751: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+           uname-9952    [001] d...1   515.423751: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+           uname-9952    [001] d...1   515.423815: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+           uname-9952    [001] d...1   515.423816: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+    10-help-text-9953    [000] d...1   515.424465: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+    10-help-text-9953    [000] d...1   515.424465: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+    10-help-text-9953    [000] d...1   515.424537: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=10-help-text
+    10-help-text-9953    [000] d...1   515.424538: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=10-help-text
+ 50-landscape-sy-9954    [002] d...1   515.425073: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ 50-landscape-sy-9954    [002] d...1   515.425074: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ 50-landscape-sy-9954    [002] d...1   515.425145: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=50-landscape-sy
+ 50-landscape-sy-9954    [002] d...1   515.425146: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=50-landscape-sy
+            find-9955    [000] d...1   515.425658: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=50-landscape-sy
+            find-9955    [000] d...1   515.425659: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=50-landscape-sy
+            find-9955    [000] d...1   515.425724: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+            find-9955    [000] d...1   515.425725: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+             cat-9956    [001] d...1   515.426441: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=50-landscape-sy
+             cat-9956    [001] d...1   515.426442: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=50-landscape-sy
+             cat-9956    [001] d...1   515.426511: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+             cat-9956    [001] d...1   515.426517: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+    50-motd-news-9957    [003] d...1   515.427183: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+    50-motd-news-9957    [003] d...1   515.427184: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+    50-motd-news-9957    [003] d...1   515.427301: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=50-motd-news
+    50-motd-news-9957    [003] d...1   515.427301: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=50-motd-news
+          conmon-9959    [000] d...1   515.432037: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+          conmon-9959    [000] d...1   515.432038: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+          conmon-9959    [000] d...1   515.432129: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=conmon
+          conmon-9959    [000] d...1   515.432130: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=conmon
+        85-fwupd-9960    [002] d...1   515.432151: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+        85-fwupd-9960    [002] d...1   515.432152: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+        85-fwupd-9960    [002] d...1   515.432228: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=85-fwupd
+        85-fwupd-9960    [002] d...1   515.432229: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=85-fwupd
+ 90-updates-avai-9961    [003] d...1   515.432882: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ 90-updates-avai-9961    [003] d...1   515.432883: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ 90-updates-avai-9961    [003] d...1   515.432956: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=90-updates-avai
+ 90-updates-avai-9961    [003] d...1   515.432957: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=90-updates-avai
+             cat-9962    [002] d...1   515.433387: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+             cat-9962    [002] d...1   515.433388: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+             cat-9962    [002] d...1   515.433453: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+             cat-9962    [002] d...1   515.433454: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+            grep-9964    [002] d...1   515.434286: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+            grep-9964    [002] d...1   515.434287: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+            find-9963    [001] d...1   515.434323: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+            find-9963    [001] d...1   515.434324: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+            grep-9964    [002] d...1   515.434359: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=grep
+            grep-9964    [002] d...1   515.434360: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=grep
+            find-9963    [001] d...1   515.434619: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+            find-9963    [001] d...1   515.434620: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+          bridge-9965    [003] d...1   515.435376: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+          bridge-9965    [003] d...1   515.435377: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+          bridge-9965    [003] d...1   515.435449: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bridge
+          bridge-9965    [003] d...1   515.435450: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bridge
+ notify-updates--9966    [000] d...1   515.435705: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+ notify-updates--9966    [000] d...1   515.435706: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+ notify-updates--9966    [000] d...1   515.435769: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=notify-updates-
+ notify-updates--9966    [000] d...1   515.435770: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=notify-updates-
+         gettext-9967    [002] d...1   515.436360: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=notify-updates-
+         gettext-9967    [002] d...1   515.436361: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=notify-updates-
+         gettext-9967    [002] d...1   515.436428: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=gettext
+         gettext-9967    [002] d...1   515.436429: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=gettext
+         gettext-9974    [002] d...1   515.436982: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=notify-updates-
+         gettext-9974    [002] d...1   515.436983: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=notify-updates-
+         gettext-9974    [002] d...1   515.437045: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=gettext
+         gettext-9974    [002] d...1   515.437046: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=gettext
+         portmap-9975    [003] d...1   515.437570: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+         portmap-9975    [003] d...1   515.437571: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+         portmap-9975    [003] d...1   515.437638: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=portmap
+         portmap-9975    [003] d...1   515.437639: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=portmap
+ 91-contract-ua--9976    [002] d...1   515.437890: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ 91-contract-ua--9976    [002] d...1   515.437890: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ 91-contract-ua--9976    [002] d...1   515.437959: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=91-contract-ua-
+ 91-contract-ua--9976    [002] d...1   515.437959: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=91-contract-ua-
+ release-upgrade-9978    [002] d...1   515.438473: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ release-upgrade-9978    [002] d...1   515.438474: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ release-upgrade-9978    [002] d...1   515.438542: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=91-release-upgr
+ release-upgrade-9978    [002] d...1   515.438542: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=91-release-upgr
+             cut-9986    [002] d...1   515.439348: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+             cut-9986    [002] d...1   515.439349: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+             cut-9986    [000] d...1   515.439476: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cut
+             cut-9986    [000] d...1   515.439477: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cut
+        firewall-9987    [003] d...1   515.439568: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+        firewall-9987    [003] d...1   515.439569: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+        firewall-9987    [003] d...1   515.439638: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=firewall
+        firewall-9987    [003] d...1   515.439638: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=firewall
+              id-9988    [000] d...1   515.440122: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+              id-9988    [000] d...1   515.440123: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+              id-9988    [000] d...1   515.440186: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+              id-9988    [000] d...1   515.440187: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+ release-upgrade-9978    [002] d...1   515.440703: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+ release-upgrade-9978    [002] d...1   515.440704: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+ release-upgrade-9978    [002] d...1   515.440808: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=release-upgrade
+ release-upgrade-9978    [002] d...1   515.440809: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=release-upgrade
+            date-9994    [003] d...1   515.441296: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=release-upgrade
+            date-9994    [003] d...1   515.441297: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=release-upgrade
+            date-9994    [003] d...1   515.441371: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+            date-9994    [003] d...1   515.441372: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+          tuning-9995    [000] d...1   515.441594: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+          tuning-9995    [000] d...1   515.441595: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+          tuning-9995    [000] d...1   515.441663: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=tuning
+          tuning-9995    [000] d...1   515.441664: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=tuning
+ update-motd-una-9996    [003] d...1   515.442088: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ update-motd-una-9996    [003] d...1   515.442089: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ update-motd-una-9996    [003] d...1   515.442157: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=92-unattended-u
+ update-motd-una-9996    [003] d...1   515.442158: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=92-unattended-u
+ update-motd-una-9996    [003] d...1   515.442522: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=92-unattended-u
+ update-motd-una-9996    [003] d...1   515.442523: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=92-unattended-u
+ update-motd-una-9996    [003] d...1   515.442590: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-una
+ update-motd-una-9996    [003] d...1   515.442591: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-una
+      95-hwe-eol-10002   [003] d...1   515.443102: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+      95-hwe-eol-10002   [003] d...1   515.443102: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+      95-hwe-eol-10002   [003] d...1   515.443165: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=95-hwe-eol
+      95-hwe-eol-10002   [003] d...1   515.443166: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=95-hwe-eol
+            find-10003   [000] d...1   515.443654: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=95-hwe-eol
+            find-10003   [000] d...1   515.443655: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=95-hwe-eol
+            find-10003   [000] d...1   515.443842: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+            find-10003   [000] d...1   515.443843: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+          podman-10004   [002] d...1   515.445571: bpf_trace_printk: send event pid: 10004, mntns: 4026532957
+
+          podman-10004   [002] d...1   515.445574: bpf_trace_printk: send event pid: 10004, mntns: 4026532957
+
+       newuidmap-10005   [003] d...1   515.445839: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+       newuidmap-10005   [003] d...1   515.445840: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+       newuidmap-10005   [003] d...1   515.445909: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=newuidmap
+       newuidmap-10005   [003] d...1   515.445909: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=newuidmap
+  97-overlayroot-10006   [000] d...1   515.445926: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+  97-overlayroot-10006   [000] d...1   515.445927: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+  97-overlayroot-10006   [000] d...1   515.446082: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=97-overlayroot
+  97-overlayroot-10006   [000] d...1   515.446083: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=97-overlayroot
+       newgidmap-10008   [003] d...1   515.446757: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+       newgidmap-10008   [003] d...1   515.446758: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=podman
+       newgidmap-10008   [003] d...1   515.446823: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=newgidmap
+       newgidmap-10008   [003] d...1   515.446823: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=newgidmap
+            grep-10009   [000] d...1   515.446832: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=97-overlayroot
+            grep-10009   [000] d...1   515.446833: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=97-overlayroot
+            grep-10009   [000] d...1   515.446929: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=egrep
+            grep-10009   [000] d...1   515.446930: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=egrep
+            sort-10010   [002] d...1   515.447094: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=97-overlayroot
+            sort-10010   [002] d...1   515.447095: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=97-overlayroot
+            sort-10010   [002] d...1   515.447168: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sort
+            sort-10010   [002] d...1   515.447169: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sort
+            grep-10009   [000] d...1   515.447353: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-10009   [000] d...1   515.447353: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-10009   [000] d...1   515.447366: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-10009   [000] d...1   515.447367: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-10009   [000] d...1   515.447373: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-10009   [000] d...1   515.447374: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-10009   [000] d...1   515.447379: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-10009   [000] d...1   515.447380: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+            grep-10009   [000] d...1   515.447444: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=grep
+            grep-10009   [000] d...1   515.447445: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=grep
+          podman-10011   [003] d...1   515.447883: bpf_trace_printk: send event pid: 10011, mntns: 4026532957
+
+          podman-10011   [003] d...1   515.447885: bpf_trace_printk: send event pid: 10011, mntns: 4026532957
+
+          podman-10012   [001] d...1   515.448252: bpf_trace_printk: send event pid: 10012, mntns: 4026532957
+
+          podman-10012   [001] d...1   515.448254: bpf_trace_printk: send event pid: 10012, mntns: 4026532957
+
+          podman-10012   [001] d...1   515.448355: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+          podman-10012   [001] d...1   515.448356: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+          podman-10004   [002] d...1   515.448609: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+          podman-10004   [002] d...1   515.448610: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+ update-motd-fsc-10013   [000] d...1   515.448777: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ update-motd-fsc-10013   [000] d...1   515.448778: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ update-motd-fsc-10013   [000] d...1   515.448869: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=98-fsck-at-rebo
+ update-motd-fsc-10013   [000] d...1   515.448869: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=98-fsck-at-rebo
+          podman-10004   [002] d...1   515.448881: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=podman
+          podman-10004   [002] d...1   515.448882: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=podman
+          podman-10012   [001] d...1   515.449367: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=podman
+          podman-10012   [001] d...1   515.449368: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=podman
+ update-motd-fsc-10013   [000] d...1   515.449495: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=98-fsck-at-rebo
+ update-motd-fsc-10013   [000] d...1   515.449496: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=98-fsck-at-rebo
+ update-motd-fsc-10013   [000] d...1   515.449575: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-fsc
+ update-motd-fsc-10013   [000] d...1   515.449575: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-fsc
+              id-10016   [000] d...1   515.450082: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+              id-10016   [000] d...1   515.450083: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+              id-10016   [000] d...1   515.450144: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+              id-10016   [000] d...1   515.450144: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+            stat-10020   [001] d...1   515.451476: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            stat-10020   [001] d...1   515.451477: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            stat-10020   [001] d...1   515.451548: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=stat
+            stat-10020   [001] d...1   515.451548: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=stat
+             awk-10024   [001] d...1   515.452333: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+             awk-10024   [001] d...1   515.452334: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+             awk-10024   [001] d...1   515.452401: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=awk
+             awk-10024   [001] d...1   515.452402: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=awk
+            date-10023   [003] d...1   515.453526: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            date-10023   [003] d...1   515.453527: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            date-10023   [003] d...1   515.453598: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+            date-10023   [003] d...1   515.453599: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+            date-10025   [001] d...1   515.454215: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            date-10025   [001] d...1   515.454216: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            date-10025   [001] d...1   515.454282: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+            date-10025   [001] d...1   515.454282: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+             cat-10026   [001] d...1   515.454900: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+             cat-10026   [001] d...1   515.454901: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+             cat-10026   [001] dN..1   515.455050: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+             cat-10026   [001] dN..1   515.455051: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+ update-motd-reb-10027   [000] d...1   515.455883: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ update-motd-reb-10027   [000] d...1   515.455884: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+ update-motd-reb-10027   [000] d...1   515.455981: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=98-reboot-requi
+ update-motd-reb-10027   [000] d...1   515.455982: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=98-reboot-requi
+ update-motd-reb-10027   [000] d...1   515.457019: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=98-reboot-requi
+ update-motd-reb-10027   [000] d...1   515.457019: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=98-reboot-requi
+ update-motd-reb-10027   [001] d...1   515.457172: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-reb
+ update-motd-reb-10027   [001] d...1   515.457173: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-reb
+             cat-10030   [000] d...1   515.457590: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-reb
+             cat-10030   [000] d...1   515.457591: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-reb
+             cat-10030   [000] d...1   515.457679: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+             cat-10030   [000] d...1   515.457680: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+        modprobe-10032   [003] d...1   515.459360: bpf_trace_printk: send event pid: 10032, mntns: 4026532957
+
+        modprobe-10032   [003] d...1   515.459362: bpf_trace_printk: send event pid: 10032, mntns: 4026532957
+
+        modprobe-10032   [003] d...1   515.459380: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+        modprobe-10032   [003] d...1   515.459381: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+        modprobe-10032   [003] d...1   515.459466: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=modprobe
+        modprobe-10032   [003] d...1   515.459467: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=modprobe
+          conmon-10033   [001] d...1   515.490059: bpf_trace_printk: send event pid: 10033, mntns: 4026532957
+
+          conmon-10033   [001] d...1   515.490061: bpf_trace_printk: send event pid: 10033, mntns: 4026532957
+
+          conmon-10033   [001] d...1   515.490080: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+          conmon-10033   [001] d...1   515.490081: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+          conmon-10033   [001] dN..1   515.490224: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=conmon
+          conmon-10033   [001] dN..1   515.490226: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=conmon
+            sudo-10034   [003] d...1   515.505319: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+            sudo-10034   [003] d...1   515.505320: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+            sudo-10034   [003] d...1   515.505627: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bash
+            sudo-10034   [003] d...1   515.505628: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bash
+            sudo-10034   [003] d...1   515.506508: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bash
+            sudo-10034   [003] d...1   515.506509: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bash
+            sudo-10034   [003] d...1   515.506614: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bash
+            sudo-10034   [003] d...1   515.506615: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bash
+            sudo-10034   [003] d...1   515.508190: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bash
+            sudo-10034   [003] d...1   515.508191: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bash
+            sudo-10034   [003] d...1   515.508300: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sudo
+            sudo-10034   [003] d...1   515.508301: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sudo
+          bridge-10035   [001] d...1   515.511260: bpf_trace_printk: send event pid: 10035, mntns: 4026532957
+
+          bridge-10035   [001] d...1   515.511262: bpf_trace_printk: send event pid: 10035, mntns: 4026532957
+
+          bridge-10035   [001] d...1   515.511281: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+          bridge-10035   [001] d...1   515.511281: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+          bridge-10035   [001] d...1   515.511360: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=bridge
+          bridge-10035   [001] d...1   515.511361: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=bridge
+            sudo-10041   [003] d...1   515.513067: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sudo
+            sudo-10041   [003] d...1   515.513068: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sudo
+         portmap-10042   [001] d...1   515.513332: bpf_trace_printk: send event pid: 10042, mntns: 4026532957
+
+         portmap-10042   [001] d...1   515.513334: bpf_trace_printk: send event pid: 10042, mntns: 4026532957
+
+         portmap-10042   [001] d...1   515.513353: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+         portmap-10042   [001] d...1   515.513354: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+         portmap-10042   [001] d...1   515.513429: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=portmap
+         portmap-10042   [001] d...1   515.513430: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=portmap
+            sudo-10041   [003] d...1   515.513479: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+            sudo-10041   [003] d...1   515.513480: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+          podman-10049   [003] d...1   515.515415: bpf_trace_printk: send event pid: 10049, mntns: 4026532957
+
+          podman-10049   [003] dN..1   515.515433: bpf_trace_printk: send event pid: 10049, mntns: 4026532957
+
+          podman-10049   [003] d...1   515.515475: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+          podman-10049   [003] dN..1   515.515491: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+        firewall-10049   [003] d...1   515.515571: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=firewall
+        firewall-10049   [003] dN..1   515.515589: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=firewall
+           <...>-10055   [001] d...1   515.517432: bpf_trace_printk: send event pid: 10055, mntns: 4026532957
+
+           <...>-10055   [001] d...1   515.517455: bpf_trace_printk: send event pid: 10055, mntns: 4026532957
+
+           <...>-10055   [001] d...1   515.517474: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+           <...>-10055   [001] d...1   515.517496: bpf_trace_printk: sys_enter_execve mntns=4026532957 comm=podman
+           <...>-10055   [001] d...1   515.517582: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=tuning
+           <...>-10055   [001] d...1   515.517608: bpf_trace_printk: sched_process_exec mntns=4026532957 comm=tuning
+           <...>-10061   [000] d...1   516.770349: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+           <...>-10061   [000] d...1   516.770383: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+            sshd-10061   [000] d...1   516.770618: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sshd
+            sshd-10061   [000] d...1   516.770647: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sshd
+           <...>-10064   [001] d...1   516.980181: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=cron
+           <...>-10064   [001] d...1   516.980213: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=cron
+           <...>-10064   [001] d...1   516.980404: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sh
+           <...>-10064   [001] d...1   516.980431: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sh
+           <...>-10065   [000] d...1   516.980958: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sh
+           <...>-10065   [000] d...1   516.980987: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sh
+              sh-10065   [000] d...1   516.981691: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=debian-sa1
+              sh-10065   [000] d...1   516.981719: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=debian-sa1
+           <...>-10066   [002] d...1   517.259398: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+           <...>-10066   [002] d...1   517.259415: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+           <...>-10066   [002] d...1   517.259524: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sh
+           <...>-10066   [002] d...1   517.259548: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sh
+           <...>-10067   [001] d...1   517.260105: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sh
+           <...>-10067   [001] d...1   517.260130: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sh
+           <...>-10067   [001] d...1   517.260214: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=env
+           <...>-10067   [001] d...1   517.260238: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=env
+           <...>-10067   [001] d...1   517.260642: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+           <...>-10067   [001] d...1   517.260668: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+           <...>-10067   [001] d...1   517.260684: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+           <...>-10067   [001] d...1   517.260705: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+           <...>-10067   [001] d...1   517.260714: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+           <...>-10067   [001] d...1   517.260729: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+           <...>-10067   [001] d...1   517.260737: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+           <...>-10067   [001] d...1   517.260738: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=env
+           <...>-10067   [001] d...1   517.260809: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=run-parts
+           <...>-10067   [001] d...1   517.260832: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=run-parts
+           <...>-10068   [000] d...1   517.261340: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10068   [000] d...1   517.261366: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10068   [000] d...1   517.261465: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=00-header
+           <...>-10068   [000] d...1   517.261488: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=00-header
+       00-header-10069   [003] d...1   517.262040: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+       00-header-10069   [003] dN..1   517.262059: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+       00-header-10069   [001] d...1   517.262271: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+       00-header-10069   [001] d...1   517.262307: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+       00-header-10070   [002] d...1   517.262951: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+       00-header-10070   [002] d...1   517.262971: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+           uname-10070   [001] d...1   517.263189: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+           uname-10070   [001] dN..1   517.263208: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+           <...>-10071   [003] d...1   517.263844: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+           <...>-10071   [003] d...1   517.263873: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=00-header
+       00-header-10071   [003] d...1   517.264019: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+       00-header-10071   [003] d...1   517.264064: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=uname
+           <...>-10072   [002] d...1   517.264813: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10072   [002] d...1   517.264841: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10072   [002] d...1   517.264917: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=10-help-text
+           <...>-10072   [002] d...1   517.264945: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=10-help-text
+           <...>-10073   [003] d...1   517.265543: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10073   [003] d...1   517.265570: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+       run-parts-10073   [003] d...1   517.265714: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=50-landscape-sy
+       run-parts-10073   [003] d...1   517.265744: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=50-landscape-sy
+ 50-landscape-sy-10074   [001] d...1   517.266341: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=50-landscape-sy
+ 50-landscape-sy-10074   [001] dN..1   517.266359: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=50-landscape-sy
+            find-10074   [001] d...1   517.266448: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+            find-10074   [001] dN..1   517.266469: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+           <...>-10075   [000] d...1   517.267269: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=50-landscape-sy
+           <...>-10075   [000] d...1   517.267296: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=50-landscape-sy
+           <...>-10075   [000] d...1   517.267363: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+           <...>-10075   [000] d...1   517.267389: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+           <...>-10076   [002] d...1   517.268076: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10076   [002] d...1   517.268106: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10076   [002] d...1   517.268186: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=50-motd-news
+           <...>-10076   [002] d...1   517.268215: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=50-motd-news
+           <...>-10077   [003] d...1   517.268895: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10077   [003] d...1   517.268922: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+       run-parts-10077   [003] d...1   517.269051: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=85-fwupd
+       run-parts-10077   [003] d...1   517.269080: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=85-fwupd
+           <...>-10078   [000] d...1   517.269673: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10078   [000] d...1   517.269701: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10078   [000] d...1   517.269771: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=90-updates-avai
+           <...>-10078   [000] d...1   517.269798: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=90-updates-avai
+           <...>-10079   [003] d...1   517.270234: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+           <...>-10079   [003] d...1   517.270261: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+ 90-updates-avai-10079   [003] d...1   517.270370: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+ 90-updates-avai-10079   [003] d...1   517.270399: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+           <...>-10080   [002] d...1   517.271086: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+           <...>-10080   [002] d...1   517.271113: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+ 90-updates-avai-10081   [001] dN..1   517.271120: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+ 90-updates-avai-10081   [001] dN..1   517.271121: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+           <...>-10080   [002] d...1   517.271187: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+           <...>-10080   [002] d...1   517.271215: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+            grep-10081   [001] d...1   517.271258: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=grep
+            grep-10081   [001] dN..1   517.271275: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=grep
+           <...>-10082   [003] d...1   517.271996: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+           <...>-10082   [003] d...1   517.272022: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=90-updates-avai
+ 90-updates-avai-10082   [003] d...1   517.272470: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=notify-updates-
+ 90-updates-avai-10082   [003] d...1   517.272500: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=notify-updates-
+           <...>-10083   [000] d...1   517.273068: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=notify-updates-
+           <...>-10083   [000] d...1   517.273095: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=notify-updates-
+           <...>-10083   [000] d...1   517.273168: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=gettext
+           <...>-10083   [000] d...1   517.273205: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=gettext
+ notify-updates--10084   [001] d...1   517.273762: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=notify-updates-
+ notify-updates--10084   [001] dN..1   517.273781: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=notify-updates-
+         gettext-10084   [001] d...1   517.273872: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=gettext
+         gettext-10084   [001] dN..1   517.273893: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=gettext
+           <...>-10085   [000] d...1   517.274598: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10085   [000] d...1   517.274625: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10085   [000] d...1   517.274694: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=91-contract-ua-
+           <...>-10085   [000] d...1   517.274721: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=91-contract-ua-
+           <...>-10086   [003] d...1   517.275301: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10086   [003] d...1   517.275327: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+       run-parts-10086   [002] d...1   517.275521: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=91-release-upgr
+       run-parts-10086   [002] d...1   517.275560: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=91-release-upgr
+           <...>-10089   [000] d...1   517.276302: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+           <...>-10089   [000] d...1   517.276330: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+           <...>-10089   [000] d...1   517.276402: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cut
+           <...>-10089   [000] d...1   517.276429: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cut
+           <...>-10090   [000] d...1   517.277080: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+           <...>-10090   [000] d...1   517.277107: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+           <...>-10090   [000] d...1   517.277171: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+           <...>-10090   [000] d...1   517.277198: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+ 91-release-upgr-10086   [002] d...1   517.277762: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+ 91-release-upgr-10086   [002] d...1   517.277791: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=91-release-upgr
+ 91-release-upgr-10086   [002] d...1   517.277888: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=release-upgrade
+ 91-release-upgr-10086   [002] d...1   517.277941: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=release-upgrade
+ release-upgrade-10091   [001] d...1   517.278442: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=release-upgrade
+ release-upgrade-10091   [001] dN..1   517.278460: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=release-upgrade
+            date-10091   [001] d...1   517.278538: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+            date-10091   [001] dN..1   517.278560: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+           <...>-10092   [002] d...1   517.279327: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10092   [002] d...1   517.279352: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+       run-parts-10092   [002] d...1   517.279533: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=92-unattended-u
+       run-parts-10092   [002] d...1   517.279560: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=92-unattended-u
+ 92-unattended-u-10092   [002] d...1   517.280005: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=92-unattended-u
+ 92-unattended-u-10092   [002] d...1   517.280037: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=92-unattended-u
+ 92-unattended-u-10092   [002] d...1   517.280228: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-una
+ 92-unattended-u-10092   [002] d...1   517.280255: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-una
+           <...>-10093   [000] d...1   517.280859: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10093   [000] d...1   517.280885: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10093   [000] d...1   517.280955: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=95-hwe-eol
+           <...>-10093   [000] d...1   517.280981: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=95-hwe-eol
+           <...>-10094   [003] d...1   517.281526: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=95-hwe-eol
+           <...>-10094   [003] d...1   517.281554: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=95-hwe-eol
+            find-10094   [003] d...1   517.281657: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+            find-10094   [003] dN..1   517.281713: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=find
+           <...>-10095   [002] d...1   517.283710: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10095   [002] d...1   517.283738: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+       run-parts-10095   [002] d...1   517.283890: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=97-overlayroot
+       run-parts-10095   [002] d...1   517.283941: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=97-overlayroot
+           <...>-10097   [000] d...1   517.284665: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=97-overlayroot
+           <...>-10097   [000] d...1   517.284693: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=97-overlayroot
+           <...>-10098   [003] d...1   517.284729: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=97-overlayroot
+           <...>-10098   [003] d...1   517.284754: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=97-overlayroot
+           <...>-10097   [000] d...1   517.284772: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=egrep
+           <...>-10097   [000] d...1   517.284797: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=egrep
+           <...>-10098   [003] d...1   517.284857: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sort
+           <...>-10098   [003] d...1   517.284884: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=sort
+           <...>-10097   [000] d...1   517.285242: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+           <...>-10097   [000] d...1   517.285271: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+           <...>-10097   [000] d...1   517.285286: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+           <...>-10097   [000] d...1   517.285286: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+           <...>-10097   [000] d...1   517.285292: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+           <...>-10097   [000] d...1   517.285293: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+           <...>-10097   [000] d...1   517.285316: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+           <...>-10097   [000] d...1   517.285340: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=egrep
+           <...>-10097   [000] d...1   517.285451: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=grep
+           <...>-10097   [000] d...1   517.285477: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=grep
+           <...>-10099   [000] d...1   517.286839: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10099   [000] d...1   517.286867: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10099   [000] d...1   517.286935: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=98-fsck-at-rebo
+           <...>-10099   [000] d...1   517.286961: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=98-fsck-at-rebo
+           <...>-10099   [000] d...1   517.287358: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=98-fsck-at-rebo
+           <...>-10099   [000] d...1   517.287388: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=98-fsck-at-rebo
+           <...>-10099   [000] d...1   517.287459: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-fsc
+           <...>-10099   [000] d...1   517.287486: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-fsc
+           <...>-10100   [003] d...1   517.287985: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+           <...>-10100   [003] d...1   517.288012: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+           <...>-10100   [003] d...1   517.288105: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+           <...>-10100   [003] d...1   517.288133: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=id
+ update-motd-fsc-10101   [001] d...1   517.288782: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+ update-motd-fsc-10101   [001] dN..1   517.288802: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            stat-10101   [001] d...1   517.288896: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=stat
+            stat-10101   [001] dN..1   517.288917: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=stat
+           <...>-10103   [000] d...1   517.289711: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+           <...>-10103   [000] d...1   517.289738: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+           <...>-10103   [000] d...1   517.289808: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=awk
+           <...>-10103   [000] d...1   517.289835: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=awk
+           <...>-10102   [002] d...1   517.291105: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+           <...>-10102   [002] d...1   517.291134: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+ update-motd-fsc-10102   [002] d...1   517.291298: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+ update-motd-fsc-10102   [002] d...1   517.291326: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+ update-motd-fsc-10104   [001] d...1   517.291972: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+ update-motd-fsc-10104   [001] dN..1   517.291991: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+            date-10104   [001] d...1   517.292099: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+            date-10104   [001] dN..1   517.292118: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=date
+           <...>-10105   [002] d...1   517.292729: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+           <...>-10105   [002] d...1   517.292762: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-fsc
+ update-motd-fsc-10105   [002] d...1   517.292938: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+ update-motd-fsc-10105   [002] d...1   517.292965: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+           <...>-10106   [000] d...1   517.293628: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10106   [000] d...1   517.293655: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=run-parts
+           <...>-10106   [000] d...1   517.293725: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=98-reboot-requi
+           <...>-10106   [000] d...1   517.293752: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=98-reboot-requi
+           <...>-10106   [000] d...1   517.294107: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=98-reboot-requi
+           <...>-10106   [000] d...1   517.294136: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=98-reboot-requi
+           <...>-10106   [000] d...1   517.294205: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-reb
+           <...>-10106   [000] d...1   517.294232: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=update-motd-reb
+ update-motd-reb-10107   [001] d...1   517.294652: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-reb
+ update-motd-reb-10107   [001] dN..1   517.294669: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=update-motd-reb
+             cat-10107   [001] d...1   517.294748: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+             cat-10107   [001] dN..1   517.294766: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=cat
+           <...>-10109   [002] d...1   517.341283: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+           <...>-10109   [002] d...1   517.341312: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=sshd
+            sshd-10109   [002] d...1   517.341723: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bash
+            sshd-10109   [002] d...1   517.341752: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bash
+            bash-10109   [002] d...1   517.342625: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bash
+            bash-10109   [002] d...1   517.342661: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bash
+            bash-10109   [002] d...1   517.342869: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bash
+            bash-10109   [002] d...1   517.342897: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bash
+            bash-10109   [002] d...1   517.343766: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bash
+            bash-10109   [002] d...1   517.343801: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bash
+            bash-10109   [002] d...1   517.343986: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=kubectl
+            bash-10109   [002] d...1   517.344014: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=kubectl
+           <...>-10116   [002] d...1   517.697503: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=kubelet
+           <...>-10116   [002] d...1   517.697534: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=kubelet
+           mount-10116   [001] d...1   517.697696: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=mount
+           mount-10116   [001] d...1   517.697743: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=mount
+           pinns-10117   [002] d...1   517.756118: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           pinns-10117   [002] d...1   517.756138: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           pinns-10117   [002] d...1   517.756226: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=pinns
+           pinns-10117   [002] d...1   517.756227: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=pinns
+          bridge-10118   [002] d...1   517.759547: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+          bridge-10118   [002] d...1   517.759565: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+          bridge-10118   [002] d...1   517.759633: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bridge
+          bridge-10118   [002] d...1   517.759634: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bridge
+           <...>-10124   [002] d...1   517.761655: bpf_trace_printk: send event pid: 10124, mntns: 4026532224
+
+           <...>-10124   [002] d...1   517.761688: bpf_trace_printk: send event pid: 10124, mntns: 4026532224
+
+           <...>-10126   [000] d...1   517.763366: bpf_trace_printk: send event pid: 10126, mntns: 4026532224
+
+           <...>-10126   [000] d...1   517.763397: bpf_trace_printk: send event pid: 10126, mntns: 4026532224
+
+           <...>-10127   [002] d...1   517.763401: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10127   [002] d...1   517.763401: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10127   [002] d...1   517.763458: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=host-local
+           <...>-10127   [002] d...1   517.763485: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=host-local
+         (spawn)-10126   [000] d...1   517.763522: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+         (spawn)-10126   [000] d...1   517.763550: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+   ifplugd.agent-10126   [001] d...1   517.763847: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifplugd.agent
+   ifplugd.agent-10126   [001] dN..1   517.763876: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifplugd.agent
+           <...>-10132   [000] d...1   517.764489: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=networkd-dispat
+           <...>-10132   [000] d...1   517.764524: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=networkd-dispat
+ networkd-dispat-10132   [000] d...1   517.764617: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=networkctl
+ networkd-dispat-10132   [000] d...1   517.764643: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=networkctl
+   ifplugd.agent-10133   [002] d...1   517.765365: bpf_trace_printk: send event pid: 10133, mntns: 4026532224
+
+   ifplugd.agent-10133   [002] d...1   517.765425: bpf_trace_printk: send event pid: 10133, mntns: 4026532224
+
+   systemd-udevd-10134   [003] d...1   517.765782: bpf_trace_printk: send event pid: 10134, mntns: 4026532224
+
+   systemd-udevd-10134   [003] d...1   517.765842: bpf_trace_printk: send event pid: 10134, mntns: 4026532224
+
+   systemd-udevd-10134   [003] d...1   517.765949: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+   systemd-udevd-10134   [003] d...1   517.765979: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+         (spawn)-10134   [002] d...1   517.766193: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=net-interface-h
+         (spawn)-10134   [002] d...1   517.766230: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=net-interface-h
+           <...>-10136   [003] d...1   517.767021: bpf_trace_printk: send event pid: 10136, mntns: 4026532224
+
+           <...>-10136   [003] d...1   517.767041: bpf_trace_printk: send event pid: 10136, mntns: 4026532224
+
+           <...>-10136   [003] d...1   517.767119: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+           <...>-10136   [003] d...1   517.767147: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+           <...>-10136   [003] d...1   517.767278: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifupdown-hotplu
+           <...>-10136   [003] d...1   517.767298: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifupdown-hotplu
+           <...>-10137   [002] d...1   517.767921: bpf_trace_printk: send event pid: 10137, mntns: 4026532224
+
+           <...>-10137   [002] d...1   517.767951: bpf_trace_printk: send event pid: 10137, mntns: 4026532224
+
+ ifupdown-hotplu-10138   [001] d...1   517.768024: bpf_trace_printk: send event pid: 10138, mntns: 4026532224
+
+ ifupdown-hotplu-10138   [001] dN..1   517.768088: bpf_trace_printk: send event pid: 10138, mntns: 4026532224
+
+ ifupdown-hotplu-10138   [001] d...1   517.768112: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=ifupdown-hotplu
+ ifupdown-hotplu-10138   [001] dN..1   517.768131: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=ifupdown-hotplu
+ ifupdown-hotplu-10138   [002] d...1   517.768293: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifquery
+ ifupdown-hotplu-10138   [002] d...1   517.768323: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifquery
+           <...>-10139   [002] d...1   517.769063: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10139   [002] d...1   517.769091: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+        iptables-10139   [002] dn..1   517.769161: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+        iptables-10139   [002] dN..1   517.769197: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+ ifupdown-hotplu-10140   [002] d...1   517.769211: bpf_trace_printk: send event pid: 10140, mntns: 4026532224
+
+ ifupdown-hotplu-10140   [002] d...1   517.769266: bpf_trace_printk: send event pid: 10140, mntns: 4026532224
+
+ ifupdown-hotplu-10141   [003] d...1   517.769396: bpf_trace_printk: send event pid: 10141, mntns: 4026532224
+
+ ifupdown-hotplu-10141   [003] dN..1   517.769447: bpf_trace_printk: send event pid: 10141, mntns: 4026532224
+
+ ifupdown-hotplu-10141   [003] d...1   517.769512: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=ifupdown-hotplu
+ ifupdown-hotplu-10141   [003] d...1   517.769540: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=ifupdown-hotplu
+ ifupdown-hotplu-10141   [003] d...1   517.769609: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifquery
+ ifupdown-hotplu-10141   [003] d...1   517.769638: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=ifquery
+          bridge-10142   [001] d...1   517.771038: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+          bridge-10142   [001] dN..1   517.771055: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10143   [003] d...1   517.771056: bpf_trace_printk: send event pid: 10143, mntns: 4026532224
+
+           <...>-10143   [003] d...1   517.771058: bpf_trace_printk: send event pid: 10143, mntns: 4026532224
+
+        iptables-10142   [001] d...1   517.771153: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+         (spawn)-10143   [003] d...1   517.771171: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+        iptables-10142   [001] dN..1   517.771172: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+         (spawn)-10143   [003] d...1   517.771172: bpf_trace_printk: sys_enter_execve mntns=4026532224 comm=(spawn)
+         (spawn)-10143   [002] d...1   517.771372: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=systemd-sysctl
+         (spawn)-10143   [002] d...1   517.771404: bpf_trace_printk: sched_process_exec mntns=4026532224 comm=systemd-sysctl
+           <...>-10144   [000] d...1   517.774070: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10144   [000] d...1   517.774116: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+          bridge-10144   [002] d...1   517.774618: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+          bridge-10144   [002] d...1   517.774645: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-10146   [003] d...1   517.775569: bpf_trace_printk: send event pid: 10146, mntns: 4026532224
+
+           <...>-10146   [003] d...1   517.775601: bpf_trace_printk: send event pid: 10146, mntns: 4026532224
+
+           <...>-10145   [000] d...1   517.775877: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10145   [000] d...1   517.775913: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+          bridge-10145   [000] d...1   517.776127: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+          bridge-10145   [000] d...1   517.776164: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+   systemd-udevd-10147   [001] d...1   517.776391: bpf_trace_printk: send event pid: 10147, mntns: 4026532224
+
+   systemd-udevd-10147   [001] dN..1   517.776412: bpf_trace_printk: send event pid: 10147, mntns: 4026532224
+
+           <...>-10151   [003] d...1   517.776973: bpf_trace_printk: send event pid: 10151, mntns: 4026532224
+
+           <...>-10151   [003] d...1   517.777005: bpf_trace_printk: send event pid: 10151, mntns: 4026532224
+
+           <...>-10149   [000] d...1   517.777170: bpf_trace_printk: send event pid: 10149, mntns: 4026532224
+
+           <...>-10149   [000] d...1   517.777212: bpf_trace_printk: send event pid: 10149, mntns: 4026532224
+
+   systemd-udevd-10150   [001] d...1   517.777466: bpf_trace_printk: send event pid: 10150, mntns: 4026532224
+
+   systemd-udevd-10150   [001] dN..1   517.777488: bpf_trace_printk: send event pid: 10150, mntns: 4026532224
+
+           <...>-10148   [002] d...1   517.777539: bpf_trace_printk: send event pid: 10148, mntns: 4026532224
+
+           <...>-10148   [002] d...1   517.777569: bpf_trace_printk: send event pid: 10148, mntns: 4026532224
+
+   systemd-udevd-10152   [003] d...1   517.777973: bpf_trace_printk: send event pid: 10152, mntns: 4026532224
+
+   systemd-udevd-10152   [003] dN..1   517.778013: bpf_trace_printk: send event pid: 10152, mntns: 4026532224
+
+          bridge-10153   [002] d...1   517.779821: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+          bridge-10153   [002] d...1   517.779870: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+        iptables-10153   [003] d...1   517.779984: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+        iptables-10153   [003] d...1   517.780013: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-10154   [002] d...1   517.781010: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10154   [002] d...1   517.781036: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10154   [002] d...1   517.781108: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-10154   [002] d...1   517.781134: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-10155   [002] d...1   517.782231: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10155   [002] d...1   517.782256: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10155   [002] d...1   517.782319: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-10155   [002] d...1   517.782320: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-10156   [000] d...1   517.783339: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10156   [000] d...1   517.783375: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+          bridge-10156   [000] d...1   517.783701: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+          bridge-10156   [000] d...1   517.783734: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-10157   [002] d...1   517.785312: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10157   [002] d...1   517.785339: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+           <...>-10157   [002] d...1   517.785404: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-10157   [002] d...1   517.785430: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=iptables
+           <...>-10158   [000] d...1   517.787659: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-10158   [000] d...1   517.787696: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+            crio-10158   [000] d...1   517.787898: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bridge
+            crio-10158   [000] d...1   517.787932: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=bridge
+          bridge-10164   [001] d...1   517.789712: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+          bridge-10164   [001] dN..1   517.789729: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=bridge
+      host-local-10164   [001] d...1   517.789843: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=host-local
+      host-local-10164   [001] dN..1   517.789861: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=host-local
+           <...>-10169   [002] d...1   517.806631: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-10169   [002] d...1   517.806666: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+          conmon-10169   [002] d...1   517.806735: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=conmon
+          conmon-10169   [002] d...1   517.806762: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=conmon
+          conmon-10171   [001] d...1   517.811667: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=conmon
+          conmon-10171   [001] dN..1   517.811687: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=conmon
+          conmon-10171   [001] d...1   517.811757: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+          conmon-10171   [001] d...1   517.811781: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+               3-10171   [001] d...1   517.812240: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+               3-10171   [001] d...1   517.812271: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+           <...>-10172   [003] d...1   517.813066: bpf_trace_printk: send event pid: 10172, mntns: 4026533018
+
+           <...>-10172   [003] d...1   517.813094: bpf_trace_printk: send event pid: 10172, mntns: 4026533018
+
+           <...>-10173   [002] d...1   517.819975: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-10173   [002] d...1   517.819999: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-10173   [002] d...1   517.820083: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+           <...>-10173   [002] d...1   517.820109: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+               3-10173   [002] d...1   517.820574: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+               3-10173   [002] d...1   517.820605: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+           <...>-10174   [002] d...1   517.829426: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-10174   [002] d...1   517.829453: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+           <...>-10174   [002] d...1   517.829504: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+           <...>-10174   [002] d...1   517.829535: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+               3-10174   [002] d...1   517.829956: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+               3-10174   [002] d...1   517.829985: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+               3-10172   [003] d...1   517.830592: bpf_trace_printk: sys_enter_execve mntns=4026533018 comm=3
+               3-10172   [003] d...1   517.830620: bpf_trace_printk: sys_enter_execve mntns=4026533018 comm=3
+               3-10172   [003] d...1   517.830736: bpf_trace_printk: sched_process_exec mntns=4026533018 comm=sh
+               3-10172   [003] d...1   517.830763: bpf_trace_printk: sched_process_exec mntns=4026533018 comm=sh
+            crun-10175   [002] d...1   517.830898: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+            crun-10175   [002] d...1   517.830946: bpf_trace_printk: sys_enter_execve mntns=4026531841 comm=crio
+            crun-10175   [002] d...1   517.831035: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+            crun-10175   [002] d...1   517.831036: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=crun
+              sh-10176   [001] d...1   517.831096: bpf_trace_printk: send event pid: 10176, mntns: 4026533018
+
+              sh-10176   [001] dN..1   517.831149: bpf_trace_printk: send event pid: 10176, mntns: 4026533018
+
+              sh-10176   [001] d...1   517.831240: bpf_trace_printk: sys_enter_execve mntns=4026533018 comm=sh
+              sh-10176   [001] dN..1   517.831287: bpf_trace_printk: sys_enter_execve mntns=4026533018 comm=sh
+              sh-10176   [003] d...1   517.831448: bpf_trace_printk: sched_process_exec mntns=4026533018 comm=touch
+               3-10175   [002] d...1   517.831463: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+               3-10175   [002] d...1   517.831463: bpf_trace_printk: sched_process_exec mntns=4026531841 comm=3
+              sh-10176   [003] d...1   517.831476: bpf_trace_printk: sched_process_exec mntns=4026533018 comm=touch
+              sh-10172   [003] d...1   517.831748: bpf_trace_printk: sys_enter_execve mntns=4026533018 comm=sh
+              sh-10172   [003] d...1   517.831782: bpf_trace_printk: sys_enter_execve mntns=4026533018 comm=sh
+              sh-10172   [003] d...1   517.831852: bpf_trace_printk: sched_process_exec mntns=4026533018 comm=sleep
+              sh-10172   [003] d...1   517.831877: bpf_trace_printk: sched_process_exec mntns=4026533018 comm=sleep
+           <...>-10177   [003] d...1   519.556765: bpf_trace_printk: send event pid: 10177, mntns: 4026532318
+
+           <...>-10177   [003] d...1   519.556792: bpf_trace_printk: send event pid: 10177, mntns: 4026532318
+
+           <...>-10177   [003] d...1   519.556814: bpf_trace_printk: sys_enter_execve mntns=4026532318 comm=kube-proxy
+           <...>-10177   [003] d...1   519.556838: bpf_trace_printk: sys_enter_execve mntns=4026532318 comm=kube-proxy
+           <...>-10177   [003] d...1   519.556979: bpf_trace_printk: sched_process_exec mntns=4026532318 comm=ip6tables
+           <...>-10177   [003] d...1   519.556980: bpf_trace_printk: sched_process_exec mntns=4026532318 comm=ip6tables
+           <...>-10178   [003] d...1   519.560190: bpf_trace_printk: send event pid: 10178, mntns: 4026532318
+
+           <...>-10178   [003] d...1   519.560219: bpf_trace_printk: send event pid: 10178, mntns: 4026532318
+
+           <...>-10178   [003] d...1   519.560239: bpf_trace_printk: sys_enter_execve mntns=4026532318 comm=kube-proxy
+           <...>-10178   [003] d...1   519.560262: bpf_trace_printk: sys_enter_execve mntns=4026532318 comm=kube-proxy
+           <...>-10178   [003] d...1   519.560361: bpf_trace_printk: sched_process_exec mntns=4026532318 comm=iptables
+           <...>-10178   [003] d...1   519.560386: bpf_trace_printk: sched_process_exec mntns=4026532318 comm=iptables

@@ -413,6 +413,7 @@ var baseHooks = []string{
 	"syscall__execve",
 	// FIXME "sched_prepare_exec",
 	"sched_process_exec",
+	"sys_enter_unshare",
 	"sched_process_exit",
 }
 

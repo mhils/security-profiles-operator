@@ -200,9 +200,9 @@ static __always_inline int register_file_event(struct file * file, u64 flags)
 
     // This debug log does not work on old kernels, see
     // https://github.com/libbpf/libbpf-bootstrap/issues/206#issuecomment-1694085235
-    // bpf_printk(
-    //    "register_file_event: %i, %s with flags=%d, mode=%d, inode_mode=%d\n",
-    //    file, event->data, flags, file->f_mode, file->f_inode->i_mode);
+    bpf_printk(
+        "register_file_event: %i, %s with flags=%d, mode=%d, inode_mode=%d mntns=%u\n",
+       file, event->data, flags, file->f_mode, file->f_inode->i_mode, mntns);
     bpf_ringbuf_submit(event, 0);
 
     _file_event_inode = inode;
@@ -364,23 +364,55 @@ int sched_prepare_exec(struct trace_event_raw_sched_process_exec * ctx)
 }
 */
 
+SEC("tracepoint/syscalls/sys_enter_unshare")
+int sys_enter_unshare(struct syscalls_enter_unshare_args *args)
+{
+    struct task_struct * TRACEtask = (struct task_struct *)bpf_get_current_task();
+    u32 TRACEmntns = BPF_CORE_READ(TRACEtask, nsproxy, mnt_ns, ns.inum);
+    char TRACEcomm[TASK_COMM_LEN] = {};
+    bpf_get_current_comm(TRACEcomm, sizeof(TRACEcomm));
+    trace_hook("sys_enter_unshare mntns=%u comm=%s", TRACEmntns, TRACEcomm);
+
+    return 0;
+}
+
 SEC("tracepoint/syscalls/sys_enter_execve")
 int syscall__execve(struct trace_event_raw_sys_enter * ctx)
 {
+    struct task_struct * TRACEtask = (struct task_struct *)bpf_get_current_task();
+    u32 TRACEmntns = BPF_CORE_READ(TRACEtask, nsproxy, mnt_ns, ns.inum);
+    char TRACEcomm[TASK_COMM_LEN] = {};
+    bpf_get_current_comm(TRACEcomm, sizeof(TRACEcomm));
+    trace_hook("sys_enter_execve mntns=%u comm=%s", TRACEmntns, TRACEcomm);
+
+    struct task_struct * task = (struct task_struct *)bpf_get_current_task();
+    char * parent_comm = BPF_CORE_READ(task, parent, comm);
+    trace_hook("parent_comm %s", parent_comm);
+    trace_hook("real_parent_comm %s", BPF_CORE_READ(task, real_parent, comm));
+    trace_hook("real_parent_comm %s", BPF_CORE_READ(task, real_parent, real_parent, comm));
+    trace_hook("parent_parent_comm %s", BPF_CORE_READ(task, parent, parent, comm));
+    /*
     trace_hook("sys_enter_execve");
     struct task_struct * task = (struct task_struct *)bpf_get_current_task();
     u32 mntns = BPF_CORE_READ(task, nsproxy, mnt_ns, ns.inum);
-    clear_mntns(mntns);
+    // clear_mntns(mntns);
 
     char comm[TASK_COMM_LEN] = {};
     bpf_get_current_comm(comm, sizeof(comm));
-    trace_hook("sys_enter_execve mntns=%u comm=%s", mntns, comm);
+    trace_hook("sys_enter_execve mntns=%u comm=%s", mntns, comm);*/
     return 0;
 }
 
 SEC("tracepoint/sched/sched_process_exec")
 int sched_process_exec(struct trace_event_raw_sched_process_exec * ctx)
 {
+    struct task_struct * TRACEtask = (struct task_struct *)bpf_get_current_task();
+    u32 TRACEmntns = BPF_CORE_READ(TRACEtask, nsproxy, mnt_ns, ns.inum);
+    char TRACEcomm[TASK_COMM_LEN] = {};
+    bpf_get_current_comm(TRACEcomm, sizeof(TRACEcomm));
+    trace_hook("sched_process_exec mntns=%u comm=%s", TRACEmntns, TRACEcomm);
+
+
     if (!has_filter()) {
         return 0;
     }

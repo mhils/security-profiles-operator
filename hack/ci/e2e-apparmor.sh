@@ -118,8 +118,8 @@ check_apparmor_profile_recording() {
   echo "Creating profile recording $RECORDING_NAME"
   k apply -f $APPARMOR_RECORDING_FILE
 
-  TMP_DIR=$(mktemp -d)
-  trap 'rm -rf $TMP_DIR' EXIT
+  TMP_DIR=/tmp # $(mktemp -d)
+  # trap 'rm -rf $TMP_DIR' EXIT
 
   echo "Creating pod $PODNAME and start recording its apparmor profile"
   pod_file="${TMP_DIR}/${PODNAME}.yml"
