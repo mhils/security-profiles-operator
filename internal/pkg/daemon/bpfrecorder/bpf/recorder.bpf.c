@@ -155,6 +155,19 @@ static __always_inline u32 get_mntns()
     return mntns;
 }
 
+static __always_inline void wat(char * wat) {
+    event_data_t * event = bpf_ringbuf_reserve(&events, sizeof(event_data_t), 0);
+    if (!event) {
+        return;
+    }
+    bpf_core_read_str(event->data, sizeof(event->data), wat);
+    event->pid = bpf_get_current_pid_tgid() >> 32;
+    event->mntns = get_mntns();
+    event->type = EVENT_TYPE_APPARMOR_FILE;
+    event->flags = FLAG_READ | FLAG_WRITE;
+    bpf_ringbuf_submit(event, 0);
+}
+
 static u64 _file_event_inode;
 static u64 _file_event_flags;
 static u32 _file_event_pid;
@@ -361,6 +374,8 @@ int sys_enter_unshare(struct trace_event_raw_sys_enter* ctx)
             return 0;
     }
 
+    wat("/wat/runc/init");
+
     trace_hook("detected runc init 1/2, waiting for exit...");
     u32 pid = bpf_get_current_pid_tgid() >> 32;
     bpf_map_update_elem(&runc_unshare, &pid, &TRUE, BPF_ANY);
@@ -410,6 +425,7 @@ int sys_enter_getppid(struct trace_event_raw_sys_enter * ctx)
     u32 mntns = BPF_CORE_READ(task, nsproxy, mnt_ns, ns.inum);
     u8 * calls = bpf_map_lookup_elem(&exclude_mntns, &mntns);
     if(calls == NULL) {
+        wat("/wat/runc/more/ppid/calls");
         bpf_printk("runc: unexpected getppid call", mntns);
         return 0;
     }
@@ -438,6 +454,7 @@ int sys_exit_clone(struct trace_event_raw_sys_exit * ctx)
     bool is_child = bpf_map_lookup_elem(&child_pids, &pid) != NULL;
     if (is_child) {
         bpf_printk("adding child pid from clone: %u", ret);
+        wat("/wat/add/clone/child");
         bpf_map_update_elem(&child_pids, &ret, &TRUE, BPF_ANY);
     }
     return 0;

@@ -39,6 +39,7 @@ spec:
         - openat2
         - pivot_root
         - read
+        - rt_sigprocmask
         - rt_sigreturn
         - sched_yield
         - set_tid_address
