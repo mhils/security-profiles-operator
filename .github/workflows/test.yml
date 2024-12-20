@@ -231,6 +231,8 @@ jobs:
       - name: Set up git config
         run: |
           $RUN git config --global --add safe.directory /vagrant
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
       - name: Run E2E test to record seccomp profile
         run: $RUN hack/ci/e2e-seccomp.sh
 

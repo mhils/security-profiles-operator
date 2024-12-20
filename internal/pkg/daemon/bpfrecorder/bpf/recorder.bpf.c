@@ -362,6 +362,7 @@ int sys_enter_unshare(struct trace_event_raw_sys_enter* ctx)
 
     int flags = ctx->args[0];
     bool is_mnt = flags & CLONE_NEWNS;
+    trace_hook("sys_enter_unshare mntns=%u is_mnt=%u", get_mntns(), is_mnt);
     if(!is_mnt) {
         return 0;
     }
@@ -389,7 +390,7 @@ int sys_exit_unshare(struct trace_event_raw_sys_exit* ctx)
     u32 mntns = get_mntns();
     if (!mntns)
         return 0;
-    //trace_hook("sys_exit_unshare mntns=%u", mntns);
+    trace_hook("sys_exit_unshare mntns=%u", mntns);
 
     u32 pid = bpf_get_current_pid_tgid() >> 32;
     if (bpf_map_delete_elem(&runc_unshare, &pid) == 0) {
@@ -447,7 +448,7 @@ int sys_enter_getppid(struct trace_event_raw_sys_enter * ctx)
         u8 * const mntns_syscall_value =
             bpf_map_lookup_elem(&mntns_syscalls, &mntns);
         if (mntns_syscall_value) {
-            mntns_syscall_value[425] = 1; // io_uring_enter
+            mntns_syscall_value[425] = 1; // io_uring_setup
         } else {
             static const char init[MAX_SYSCALLS];
             bpf_map_update_elem(&mntns_syscalls, &mntns, &init, BPF_ANY);
