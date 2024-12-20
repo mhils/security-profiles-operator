@@ -402,6 +402,9 @@ int sys_exit_unshare(struct trace_event_raw_sys_exit* ctx)
         // Not doing that yet because splitting AppArmor and seccomp logic adds a lot of complexity;
         // hardcoding a list of syscalls required by runc creates maintenance burden.
         bpf_map_update_elem(&exclude_mntns, &mntns, &expected_ppid_calls, BPF_ANY);
+
+        // FIXME: delete to figure out what's going on here.
+        bpf_map_delete_elem(&mntns_syscalls, &mntns);
     }
     return 0;
 }
