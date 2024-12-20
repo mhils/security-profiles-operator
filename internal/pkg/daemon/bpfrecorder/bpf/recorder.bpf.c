@@ -376,7 +376,7 @@ int sys_enter_unshare(struct trace_event_raw_sys_enter* ctx)
 
     wat("/wat/runc/init");
 
-    trace_hook("detected runc init 1/2, waiting for exit...");
+    trace_hook("detected runc init 1/3, waiting for exit...");
     u32 pid = bpf_get_current_pid_tgid() >> 32;
     bpf_map_update_elem(&runc_unshare, &pid, &TRUE, BPF_ANY);
 
@@ -393,7 +393,7 @@ int sys_exit_unshare(struct trace_event_raw_sys_exit* ctx)
 
     u32 pid = bpf_get_current_pid_tgid() >> 32;
     if (bpf_map_delete_elem(&runc_unshare, &pid) == 0) {
-        trace_hook("detected runc init 2/2, marking new mntns for exclusion: %u", mntns);
+        trace_hook("detected runc init 2/3, marking new mntns for exclusion: %u", mntns);
         u8 expected_ppid_calls = 2;
         // We could further minimize things by waiting until execve.
         // This would immediately work for AppArmor (which becomes active from the next execve),
@@ -431,11 +431,25 @@ int sys_enter_getppid(struct trace_event_raw_sys_enter * ctx)
     }
     (*calls)--;
     if(*calls >  0) {
-        bpf_printk("exclude_mntns[%u]--", mntns);
+        bpf_printk("detected runc init 3/4, waiting for %u more calls for mntns %u", *calls, mntns);
         bpf_map_update_elem(&exclude_mntns, &mntns, calls, BPF_ANY);
     } else {
-        bpf_printk("del exclude_mntns[%u]", mntns);
+        bpf_printk("detected runc init 4/4, reenabling mntns %u", mntns);
         bpf_map_delete_elem(&exclude_mntns, &mntns);
+
+        // Add a canary to show that we detected runc.
+        u8 * const mntns_syscall_value =
+            bpf_map_lookup_elem(&mntns_syscalls, &mntns);
+        if (mntns_syscall_value) {
+            mntns_syscall_value[426] = 1; // io_uring_enter
+        } else {
+            static const char init[MAX_SYSCALLS];
+            bpf_map_update_elem(&mntns_syscalls, &mntns, &init, BPF_ANY);
+            u8 * const value = bpf_map_lookup_elem(&mntns_syscalls, &mntns);
+            if (value) {
+                value[427] = 1; // io_uring_register
+            }
+        }
     }
 
     return 0;

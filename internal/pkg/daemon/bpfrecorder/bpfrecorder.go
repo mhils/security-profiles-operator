@@ -670,7 +670,9 @@ func (b *BpfRecorder) handleEvent(eventBytes []byte) {
 	case uint8(eventTypeExit):
 		b.handleExitEvent(&event)
 	case uint8(eventTypeAppArmorFile):
-		b.AppArmor.handleFileEvent(&event)
+		if b.AppArmor != nil {
+			b.AppArmor.handleFileEvent(&event)
+		}
 	case uint8(eventTypeAppArmorSocket):
 		b.AppArmor.handleSocketEvent(&event)
 	case uint8(eventTypeAppArmorCap):
