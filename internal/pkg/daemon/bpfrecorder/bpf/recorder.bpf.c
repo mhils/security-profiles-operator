@@ -88,14 +88,14 @@ struct {
 
 struct {
     __uint(type, BPF_MAP_TYPE_HASH);
-    __uint(max_entries, 10);
+    __uint(max_entries, 1000);
     __type(key, u32);
     __type(value, bool);
 } runc_unshare SEC(".maps");
 
 struct {
     __uint(type, BPF_MAP_TYPE_HASH);
-    __uint(max_entries, 1000);
+    __uint(max_entries, 10000);
     __type(key, u32);
     __type(value, u8);
 } exclude_mntns SEC(".maps");
@@ -374,7 +374,7 @@ int sys_enter_unshare(struct trace_event_raw_sys_enter* ctx)
             return 0;
     }
 
-    wat("/wat/runc/init");
+    wat("/wat/runc/init/1/4");
 
     trace_hook("detected runc init 1/3, waiting for exit...");
     u32 pid = bpf_get_current_pid_tgid() >> 32;
@@ -393,6 +393,7 @@ int sys_exit_unshare(struct trace_event_raw_sys_exit* ctx)
 
     u32 pid = bpf_get_current_pid_tgid() >> 32;
     if (bpf_map_delete_elem(&runc_unshare, &pid) == 0) {
+        wat("/wat/runc/init/2/4");
         trace_hook("detected runc init 2/3, marking new mntns for exclusion: %u", mntns);
         u8 expected_ppid_calls = 2;
         // We could further minimize things by waiting until execve.
@@ -434,9 +435,11 @@ int sys_enter_getppid(struct trace_event_raw_sys_enter * ctx)
     }
     (*calls)--;
     if(*calls >  0) {
+        wat("/wat/runc/init/3/4");
         bpf_printk("detected runc init 3/4, waiting for %u more calls for mntns %u", *calls, mntns);
         bpf_map_update_elem(&exclude_mntns, &mntns, calls, BPF_ANY);
     } else {
+        wat("/wat/runc/init/4/4");
         bpf_printk("detected runc init 4/4, reenabling mntns %u", mntns);
         bpf_map_delete_elem(&exclude_mntns, &mntns);
 
@@ -444,7 +447,7 @@ int sys_enter_getppid(struct trace_event_raw_sys_enter * ctx)
         u8 * const mntns_syscall_value =
             bpf_map_lookup_elem(&mntns_syscalls, &mntns);
         if (mntns_syscall_value) {
-            mntns_syscall_value[426] = 1; // io_uring_enter
+            mntns_syscall_value[425] = 1; // io_uring_enter
         } else {
             static const char init[MAX_SYSCALLS];
             bpf_map_update_elem(&mntns_syscalls, &mntns, &init, BPF_ANY);
