@@ -43,6 +43,8 @@
 #define S_IFBLK 0060000
 #define S_IFSOCK 0140000
 
+#define AF_UNIX 1
+
 #define CAP_OPT_NOAUDIT 0b10
 
 #define PR_GET_PDEATHSIG 2
@@ -115,6 +117,7 @@ const volatile char filter_name[MAX_COMM_LEN] = {};
 
 static const char WILDCARD[] = "/**";
 static const char RUNC_INIT[] = "runc:[2:INIT]";
+static const char CSI_DRIVER[] = "gce-pd-csi-driv";
 static const bool TRUE = true;
 static inline bool has_filter();
 static inline bool matches_filter(char * comm);
@@ -182,6 +185,17 @@ static __always_inline bool is_runc_init()
     bpf_get_current_comm(comm, sizeof(comm));
     for (int i = 0; i < sizeof(RUNC_INIT); i++) {
         if (comm[i] != RUNC_INIT[i])
+            return false;
+    }
+    return true;
+}
+
+static __always_inline bool is_csi_driver()
+{
+    char comm[TASK_COMM_LEN] = {};
+    bpf_get_current_comm(comm, sizeof(comm));
+    for (int i = 0; i < sizeof(CSI_DRIVER); i++) {
+        if (comm[i] != CSI_DRIVER[i])
             return false;
     }
     return true;
@@ -272,11 +286,6 @@ static __always_inline int register_fs_event(struct path * filename,
                                              umode_t i_mode, u64 flags,
                                              bool custom_bpf_d_path)
 {
-    // ignore unix pipes
-    if ((i_mode & S_IFIFO) == S_IFIFO) {
-        return 0;
-    }
-
     u32 mntns = get_mntns();
     if (!mntns)
         return 0;
@@ -297,6 +306,7 @@ static __always_inline int register_fs_event(struct path * filename,
     event_data_t * event;
     event = bpf_ringbuf_reserve(&events, sizeof(event_data_t), 0);
     if (!event) {
+        bpf_printk("event buffer full, discarding file event.");
         return 0;
     }
 
@@ -338,7 +348,8 @@ static __always_inline int register_fs_event(struct path * filename,
     event->type = EVENT_TYPE_APPARMOR_FILE;
     event->flags = flags;
 
-    trace_hook("register_file_event: %s with flags=%d, i_mode=%d", event->data,
+    if(is_csi_driver())
+    bpf_printk("register_file_event: %s with flags=%d, i_mode=%d", event->data,
                flags, i_mode);
     bpf_ringbuf_submit(event, 0);
 
@@ -424,7 +435,8 @@ SEC("lsm/path_mknod")
 int BPF_PROG(path_mknod, struct path * dir, struct dentry * dentry,
              umode_t mode, unsigned int dev)
 {
-    trace_hook("path_mknod %d", mode);
+    if(is_csi_driver())
+        bpf_printk("path_mknod %d", mode);
     bool not_a_regular_file =
         ((mode & S_IFCHR) == S_IFCHR || (mode & S_IFBLK) == S_IFBLK ||
          (mode & S_IFIFO) == S_IFIFO || (mode & S_IFSOCK) == S_IFSOCK);
@@ -439,9 +451,22 @@ int BPF_PROG(path_mknod, struct path * dir, struct dentry * dentry,
 SEC("lsm/path_unlink")
 int BPF_PROG(path_unlink, struct path * dir, struct dentry * dentry)
 {
-    trace_hook("path_unlink");
+    if(is_csi_driver())
+        bpf_printk("path_unlink");
     struct path path = make_path(dentry, dir);
     return register_fs_event(&path, 0, FLAG_READ | FLAG_WRITE, true);
+}
+
+SEC("lsm/socket_bind")
+int BPF_PROG(socket_bind, struct socket *sock, struct sockaddr *address, int addrlen)
+{
+    if (address->sa_family == AF_UNIX) {
+        trace_hook("socket_bind AF_UNIX");
+        bpf_printk("socket_bind %s",  ((struct sockaddr_un*)address)->sun_path);
+    }
+    //struct path path = make_path(dentry, dir);
+    //return register_fs_event(&path, 0, FLAG_READ | FLAG_WRITE, true);
+    return 0;
 }
 
 SEC("tracepoint/syscalls/sys_enter_socket")

@@ -51,6 +51,7 @@ var appArmorHooks = []string{
 	"path_mknod",
 	"path_unlink",
 	"bprm_check_security",
+	// FIXME "socket_bind",
 	"sys_enter_socket",
 	"cap_capable",
 }
