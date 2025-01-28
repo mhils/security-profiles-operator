@@ -5,7 +5,7 @@ metadata:
   name: security-profiles-operator
   namespace: security-profiles-operator
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: security-profiles-operator

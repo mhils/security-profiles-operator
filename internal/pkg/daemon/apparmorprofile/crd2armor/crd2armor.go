@@ -42,12 +42,12 @@ profile {{.Name}} flags=({{.ProfileMode}},attach_disconnected,mediate_deleted) {
 {{ if ne .Abstract.Filesystem nil }}{{ if ne .Abstract.Filesystem.ReadOnlyPaths nil }}
 {{range $readonly := .Abstract.Filesystem.ReadOnlyPaths}}  {{$readonly}} r,
 {{end}}
-{{range $readonly := .Abstract.Filesystem.ReadOnlyPaths}}  deny {{$readonly}} wlk,
+{{range $readonly := .Abstract.Filesystem.ReadOnlyPaths}}  #deny {{$readonly}} wlk,
 {{end}}{{end}}
 {{ if ne .Abstract.Filesystem.WriteOnlyPaths nil }}
 {{range $writeonly := .Abstract.Filesystem.WriteOnlyPaths}}  {{$writeonly}} wlk,
 {{end}}
-{{range $writeonly := .Abstract.Filesystem.WriteOnlyPaths}}  deny {{$writeonly}} r,
+{{range $writeonly := .Abstract.Filesystem.WriteOnlyPaths}}  #deny {{$writeonly}} r,
 {{end}}{{end}}
 {{ if ne .Abstract.Filesystem.ReadWritePaths nil }}
 {{range $readwrite := .Abstract.Filesystem.ReadWritePaths}}  {{$readwrite}} rwlk,
@@ -55,7 +55,7 @@ profile {{.Name}} flags=({{.ProfileMode}},attach_disconnected,mediate_deleted) {
 
   # Network rules
 {{ if ne .Abstract.Network nil }}{{ if ne .Abstract.Network.AllowRaw nil }}
-{{ if .Abstract.Network.AllowRaw}}  network raw,{{else}}  deny network raw,
+{{ if .Abstract.Network.AllowRaw}}  network raw,{{else}}  #deny network raw,
 {{end}}{{end}}
 {{ if ne .Abstract.Network.Protocols nil }}
 {{if ne .Abstract.Network.Protocols.AllowTCP nil }}
@@ -71,22 +71,6 @@ profile {{.Name}} flags=({{.ProfileMode}},attach_disconnected,mediate_deleted) {
   # Raw rules placeholder
 
   # Add default deny for known information leak/priv esc paths
-  deny @{PROC}/* w,   # deny write for all files directly in /proc (not in a subdir)
-  deny @{PROC}/{[^1-9],[^1-9][^0-9],[^1-9s][^0-9y][^0-9s],[^1-9][^0-9][^0-9][^0-9]*}/** w,
-  deny @{PROC}/sys/[^k]** w,  # deny /proc/sys except /proc/sys/k* (effectively /proc/sys/kernel)
-  deny @{PROC}/sys/kernel/{?,??,[^s][^h][^m]**} w,  # deny everything except shm* in /proc/sys/kernel/
-  deny @{PROC}/sysrq-trigger rwklx,
-  deny @{PROC}/mem rwklx,
-  deny @{PROC}/kmem rwklx,
-  deny @{PROC}/kcore rwklx,
-  deny mount,
-  deny /sys/[^f]*/** wklx,
-  deny /sys/f[^s]*/** wklx,
-  deny /sys/fs/[^c]*/** wklx,
-  deny /sys/fs/c[^g]*/** wklx,
-  deny /sys/fs/cg[^r]*/** wklx,
-  deny /sys/firmware/efi/efivars/** rwklx,
-  deny /sys/kernel/security/** rwklx,
 }
 `
 
