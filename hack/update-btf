@@ -21,14 +21,28 @@ git clone --depth 1 https://github.com/aquasecurity/btfhub-archive "${ARCHIVE}"
 bash ./extract.sh -a x86_64
 bash ./extract.sh -a arm64
 
-bash ./btfgen.sh -a x86_64 -o "${BPF_OBJECT}".amd64
-rm -rf "${BTF_DIR}"
+EXCLUDES=(
+  "--exclude=4.*"
+  "--exclude=5.0.*"
+  "--exclude=5.1.*"
+  "--exclude=5.2.*"
+  "--exclude=5.3.*"
+  "--exclude=5.4.*"
+  "--exclude=5.5.*"
+  "--exclude=5.6.*"
+  "--exclude=5.7.*"
+)
 RESULT="${TEMP_DIR}/custom-archive/"
+rm -rf "${BTF_DIR}"
+
+bash ./btfgen.sh -a x86_64 -o "${BPF_OBJECT}".amd64
 rm "${RESULT}/.gitignore"
-rsync -av "${RESULT}" "${BTF_DIR}"
+rsync -av "${EXCLUDES[@]}" "${RESULT}" "${BTF_DIR}"
 
 bash ./btfgen.sh -a arm64 -o "${BPF_OBJECT}".arm64
-rsync -av "${RESULT}" "${BTF_DIR}"
+rm "${RESULT}/.gitignore"
+rsync -av "${EXCLUDES[@]}" "${RESULT}" "${BTF_DIR}"
+
 popd
 
 go run ./internal/pkg/daemon/bpfrecorder/generate
