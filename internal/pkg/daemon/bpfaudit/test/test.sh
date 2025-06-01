@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # watchexec -e c -r make internal/pkg/daemon/bpfaudit/bpf/audit.bpf.o.amd64
 # sudo watchexec -e go,amd64 -r internal/pkg/daemon/bpfaudit/test/test.sh
