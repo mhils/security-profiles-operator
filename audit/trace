@@ -1,0 +1,26 @@
+// aa_profile: https://github.com/torvalds/linux/blob/master/security/apparmor/include/policy.h#L224
+// apparmor_audit_data: https://github.com/torvalds/linux/blob/83a896549f9209ffaabf220e3778f14d5ba92e3d/security/apparmor/include/audit.h#L111
+// profile_mode: https://github.com/torvalds/linux/blob/master/security/apparmor/include/policy.h#L68
+// audit_mode: https://github.com/torvalds/linux/blob/83a896549f9209ffaabf220e3778f14d5ba92e3d/security/apparmor/include/audit.h#L25
+// common_audit_data: https://github.com/torvalds/linux/blob/83a896549f9209ffaabf220e3778f14d5ba92e3d/include/linux/lsm_audit.h#L61
+kfunc:vmlinux:aa_audit {
+    printf("=== aa_audit\n");
+    printf("profile base name: %s\n", str(args->profile->base.name));
+
+    printf("ad error: %u\n", args->ad->error);
+    // https://github.com/torvalds/linux/blob/83a896549f9209ffaabf220e3778f14d5ba92e3d/security/apparmor/include/audit.h#L33
+    printf("type: %u\n", args->type);  // 7 == AUDIT_APPARMOR_AUTO
+    printf("ad class: %u\n", args->ad->class);
+    printf("ad op: %s\n", str(args->ad->op));
+    printf("ad name: %s\n", str(args->ad->name));
+    printf("ad info: %s\n", str(args->ad->info));
+    printf("ad request: %u\n", args->ad->request);
+    printf("ad denied: %u\n", args->ad->denied);
+
+    // https://github.com/torvalds/linux/blob/83a896549f9209ffaabf220e3778f14d5ba92e3d/security/apparmor/include/audit.h#L25
+    printf("profile mode: %u\n", args->profile->mode);  // 0 == APPARMOR_ENFORCE
+    // https://github.com/torvalds/linux/blob/83a896549f9209ffaabf220e3778f14d5ba92e3d/security/apparmor/include/audit.h#L25
+    printf("profile audit: %u\n", args->profile->audit);  // 0 == AUDIT_NORMAL
+
+    printf("ad uid: %u\n", args->ad->subj_cred->uid.val);
+}

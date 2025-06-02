@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# watchexec -e c -r make internal/pkg/daemon/bpfaudit/bpf/audit.bpf.o.amd64
+# watchexec -e c -r make internal/pkg/daemon/enricher/source/bpf/enricher.bpf.o.amd64
 # sudo watchexec -e go,amd64 -r internal/pkg/daemon/bpfaudit/test/test.sh
 # watchexec --delay-run 2s -w internal/pkg/daemon/bpfaudit/test head -1 CONTRIBUTING.md
 # sudo cat /sys/kernel/debug/tracing/trace_pipe

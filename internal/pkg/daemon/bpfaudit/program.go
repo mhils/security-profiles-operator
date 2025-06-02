@@ -12,6 +12,7 @@ import (
 	"github.com/go-logr/logr"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/config"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/daemon/bpfaudit/container_id"
+	"sigs.k8s.io/security-profiles-operator/internal/pkg/daemon/enricher/source"
 )
 
 type BpfAudit struct {
@@ -31,10 +32,6 @@ type AppArmorAuditRecord struct {
 	name    string
 }
 
-type Sink interface {
-	RecordAppArmor() nil
-}
-
 func New(logger logr.Logger) *BpfAudit {
 	return &BpfAudit{
 		logger:        logger,
@@ -47,8 +44,8 @@ func (b *BpfAudit) Load() error {
 
 	b.logger.Info("Loading bpf module...")
 	module, err := libbpfgo.NewModuleFromBufferArgs(libbpfgo.NewModuleArgs{
-		BPFObjBuff: AuditProgram,
-		BPFObjName: "audit.bpf.o",
+		BPFObjBuff: source.AuditProgram,
+		BPFObjName: "enricher.bpf.o",
 	})
 	if err != nil {
 		return fmt.Errorf("load bpf module: %w", err)

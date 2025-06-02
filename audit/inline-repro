@@ -1,0 +1,37 @@
+// https://github.com/torvalds/linux/blob/a5806cd506af5a7c19bcd596e4708b5c464bfd21/security/apparmor/audit.c#L148
+kfunc:aa_audit_msg {
+    printf("aa_audit_msg\n"); // never triggers
+}
+
+// https://github.com/torvalds/linux/blob/a5806cd506af5a7c19bcd596e4708b5c464bfd21/security/lsm_audit.c#L452
+// common_audit_data: https://github.com/torvalds/linux/blob/83a896549f9209ffaabf220e3778f14d5ba92e3d/include/linux/lsm_audit.h#L61
+kfunc:common_lsm_audit {
+    printf("=== common_lsm_audit\n");
+    printf("kstack\n%s\n", kstack(7));
+    printf("kstack(raw)\n%s\n", kstack(raw, 7));
+}
+
+/*
+Output:
+=== common_lsm_audit
+kstack
+
+        handshake_exit+28245380
+        handshake_exit+28245380
+        handshake_exit+26720875
+        common_lsm_audit+9
+        aa_audit+82
+        aa_audit_file+386
+        profile_path_perm+266
+
+kstack(raw)
+
+ffffffffc020bd1d
+ffffffffc020bd1d
+ffffffffc00975cb
+ffffffffbc59ba49
+ffffffffbc5b2aa2
+ffffffffbc5ca162
+ffffffffbc5ca86a
+
+*/

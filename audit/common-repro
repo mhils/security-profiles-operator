@@ -1,0 +1,3 @@
+kfunc:common_lsm_audit {
+    printf("%u\n", args->a->apparmor_audit_data->name);
+}
