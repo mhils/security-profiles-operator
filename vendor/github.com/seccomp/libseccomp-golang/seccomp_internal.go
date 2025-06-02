@@ -560,12 +560,6 @@ func archFromNative(a C.uint32_t) (ScmpArch, error) {
 		return ArchRISCV64, nil
 	case C.C_ARCH_LOONGARCH64:
 		return ArchLOONGARCH64, nil
-	case C.C_ARCH_M68K:
-		return ArchM68K, nil
-	case C.C_ARCH_SH:
-		return ArchSH, nil
-	case C.C_ARCH_SHEB:
-		return ArchSHEB, nil
 	default:
 		return 0x0, fmt.Errorf("unrecognized architecture %#x", uint32(a))
 	}
