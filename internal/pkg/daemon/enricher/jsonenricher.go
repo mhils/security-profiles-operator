@@ -30,6 +30,7 @@ import (
 	"github.com/jellydator/ttlcache/v3"
 	"github.com/nxadm/tail"
 	"k8s.io/client-go/kubernetes"
+	"sigs.k8s.io/security-profiles-operator/internal/pkg/daemon/enricher/source"
 
 	apienricher "sigs.k8s.io/security-profiles-operator/api/grpc/enricher"
 	"sigs.k8s.io/security-profiles-operator/internal/pkg/config"
@@ -157,7 +158,7 @@ func (e *JsonEnricher) Run() error {
 		line := l.Text
 		e.logger.V(config.VerboseLevel).Info("Got line: " + line)
 
-		if !IsAuditLine(line) {
+		if !source.IsAuditLine(line) {
 			e.logger.V(config.VerboseLevel).Info("Not an audit line")
 
 			continue
@@ -165,7 +166,7 @@ func (e *JsonEnricher) Run() error {
 
 		e.logger.V(config.VerboseLevel).Info("AuditLine Parsed: " + line)
 
-		auditLine, err := ExtractAuditLine(line)
+		auditLine, err := source.ExtractAuditLine(line)
 		if err != nil {
 			e.logger.Error(err, "extract audit line")
 
@@ -195,7 +196,7 @@ func (e *JsonEnricher) Run() error {
 		}
 
 		if logBucket.ProcessInfo == nil {
-			uid, gid, err := GetUidGid(line)
+			uid, gid, err := source.GetUidGid(line)
 			if err != nil {
 				e.logger.V(config.VerboseLevel).Info(
 					"unable to get uid and gid", "line", line)

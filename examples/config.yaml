@@ -6,6 +6,6 @@ metadata:
   namespace: security-profiles-operator
 spec:
   enableSelinux: false
-  enableLogEnricher: false
-  enableAppArmor: false
+  enableLogEnricher: true
+  enableAppArmor: true
 
